@@ -17,7 +17,7 @@ class MaterialController extends Controller
     {
         $materials = Materials::all();
 
-        return view('viewmaterials', ['materials' => $materials]);
+        return view('halamanDaftarMateri', ['materials' => $materials]);
     }
 
     /**
@@ -28,7 +28,7 @@ class MaterialController extends Controller
     public function create()
     {
         //
-        return view('creatematerials');
+        return view('halamanUploadMateri');
     }
 
     /**
@@ -51,7 +51,7 @@ class MaterialController extends Controller
 
           $materials = Materials::all();
 
-          return view('/viewmaterials', ['materials' => $materials]);
+          return view('/halamanDaftarMateri', ['materials' => $materials]);
     }
 
     /**
