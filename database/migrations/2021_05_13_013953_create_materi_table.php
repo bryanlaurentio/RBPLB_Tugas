@@ -18,7 +18,7 @@ class CreateMateriTable extends Migration
             $table->string('titleOfMateri');
             $table->string('nameOfTutor');
             $table->string('linkVideo');
-            $table->string('categoryUserp');
+            $table->string('categoryUser');
             $table->string('categoryMateri');
         });
     }
