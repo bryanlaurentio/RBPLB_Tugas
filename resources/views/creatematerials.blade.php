@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                <div class="card-header">{{ __('Enter Details to create a materi') }}</div>
+                <div class="card-header">{{ __('Enter Details to create a material') }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ config('app.url')}}/materi" >
+                        <form method="POST" action="{{ config('app.url')}}/material" >
                             @csrf
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
                                 <div class="col-md-6">
-                                <input type="text" name="titleOfMateri" class="form-control">
+                                <input type="text" name="titleOfMaterial" class="form-control">
                                 </div>
                             </div>
 
@@ -38,9 +38,9 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Category Materi') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Category Material') }}</label>
                                 <div class="col-md-6">
-                                <input type="text" name="categoryMateri" class="form-control">
+                                <input type="text" name="categoryMaterial" class="form-control">
                                 </div>
                             </div>
 

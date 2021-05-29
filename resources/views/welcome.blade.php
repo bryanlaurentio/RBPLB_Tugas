@@ -83,10 +83,10 @@
             @endif
                 <div class="flex-center position-ref full-height">
                     <div class="content">
-                        <div class="title m-b-md">Materi Store</div>
+                        <div class="title m-b-md">Material Store</div>
                             <div class="links">
-                                <a href="{{ config('app.url')}}/materi/create">Create Materi</a>
-                                <a href="{{ config('app.url')}}/materi">View Materi</a>
+                                <a href="{{ config('app.url')}}/material/create">Create Material</a>
+                                <a href="{{ config('app.url')}}/material">View Material</a>
                             </div>
                         </div>
                     </div>

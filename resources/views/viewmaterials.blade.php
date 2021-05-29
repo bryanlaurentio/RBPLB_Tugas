@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Here a list of Materi') }}</div>
+                    <div class="card-header">{{ __('Here a list of Material') }}</div>
                         <div class="card-body">
                             <table class="table table-striped">
                                 <thead style = "text-align: center">
@@ -15,12 +15,12 @@
                                     <td>Link</td>
                                 </thead>
                                 <body>
-                                    @foreach ($materis as $materi)
+                                    @foreach ($materials as $material)
                                         <tr>
-                                            <td class="inner-table">{{ $materi->categoryMateri }}</td>
-                                            <td class="inner-table">{{ $materi->titleOfMateri }}</td>
-                                            <td class="inner-table">{{ $materi->nameOfTutor }}</td>
-                                            <td class="inner-table">{{ $materi->linkVideo }}</td>
+                                            <td class="inner-table">{{ $material->categoryMaterial }}</td>
+                                            <td class="inner-table">{{ $material->titleOfMaterial }}</td>
+                                            <td class="inner-table">{{ $material->nameOfTutor }}</td>
+                                            <td class="inner-table">{{ $material->linkVideo }}</td>
                                         </tr>
                                     @endforeach
                                 </body>

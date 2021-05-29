@@ -33,4 +33,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('materi', 'MateriController');
+Route::resource('material', 'MaterialController');

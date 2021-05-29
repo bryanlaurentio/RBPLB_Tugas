@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Material;
 use Illuminate\Http\Request;
-use App\Models\Materi;
+use App\Models\Materials;
 
-class MateriController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class MateriController extends Controller
      */
     public function index()
     {
-        $materis = materi::all();
+        $materials = Materials::all();
 
-        return view('viewmateri', ['materis' => $materis]);
+        return view('viewmaterials', ['materials' => $materials]);
     }
 
     /**
@@ -27,7 +28,7 @@ class MateriController extends Controller
     public function create()
     {
         //
-        return view('createmateri');
+        return view('creatematerials');
     }
 
     /**
@@ -38,19 +39,19 @@ class MateriController extends Controller
      */
     public function store(Request $request)
     {
-        $materi = new Materi([
-            'titleOfMateri' => $request->get('titleOfMateri'),
+        $materials = new Materials([
+            'titleOfMaterial' => $request->get('titleOfMaterial'),
             'nameOfTutor' => $request->get('nameOfTutor'),
             'linkVideo' => $request->get('linkVideo'),
             'categoryUser' => $request->get('categoryUser'),
-            'categoryMateri' => $request->get('categoryMateri')
+            'categoryMaterial' => $request->get('categoryMaterial')
             ]);
 
-          $materi-> save();
+          $materials-> save();
 
-          $materis = Materi::all();
+          $materials = Materials::all();
 
-          return view('/viewmateri', ['materis' => $materis]);
+          return view('/viewmaterials', ['materials' => $materials]);
     }
 
     /**

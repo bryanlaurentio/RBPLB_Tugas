@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Materi extends Model
+class Materials extends Model
 {
     public $timestamps = false;
-    protected $table = "materis";
+    protected $table = "materials";
 
     protected $fillable = [
-        'codeOfMateri',
-        'titleOfMateri',
+        'codeOfMaterial',
+        'titleOfMaterial',
         'nameOfTutor',
         'linkVideo',
         'categoryUser',
-        'categoryMateri',
+        'categoryMaterial',
     ];
 }
