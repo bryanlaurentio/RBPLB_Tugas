@@ -87,6 +87,8 @@
                             <div class="links">
                                 <a href="{{ config('app.url')}}/material/create">Create Material</a>
                                 <a href="{{ config('app.url')}}/material">View Material</a>
+                                <a href="{{ config('app.url')}}/formCreateDiscussionTopic">Create Topic</a>
+                                <a href="{{ config('app.url')}}/discussionTopic">View Topic</a>
                             </div>
                         </div>
                     </div>
