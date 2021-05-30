@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">{{ __('Here a list of Discussion Topic') }}</div>
                         <div class="card-body">
@@ -22,8 +22,8 @@
                                             <td class="inner-table">{{ $discussion_topic->nameOfTopic }}</td>
                                             <td class="inner-table">{{ $discussion_topic->categoryOfTopic }}</td>
                                             <td class="inner-table">{{ $discussion_topic->topicDescription }}</td>
-                                            <td>
-                                                <a href="">
+                                            <td >
+                                                <a href="/discussionTopic/detail/{{ $discussion_topic->codeOfTopic }}">
                                                     <button type="button" class="btn btn-primary">Masuk</button>
                                                 </a>
                                                 <a href="/discussionTopic/edit/{{ $discussion_topic->codeOfTopic }}">

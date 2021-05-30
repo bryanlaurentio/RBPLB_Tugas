@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DiscussionTopic;
+use App\Models\Answer;
+use App\Models\Comment;
 
 class DiscussionTopicController extends Controller
 {
@@ -12,6 +14,15 @@ class DiscussionTopicController extends Controller
         $discussion_topics = DiscussionTopic::all();
 
         return view('halamanForumDiskusi', ['discussion_topics' => $discussion_topics]);
+    }
+
+    public function displayDetailDiscussionTopic($codeOfTopic)
+    {
+        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
+        $answers = Answer::all()->where('codeOfTopic', $codeOfTopic);
+        $comments = Comment::all()->where('codeOfTopic', $codeOfTopic);
+
+        return view('halamanTopikDiskusi', ['discussion_topics' => $discussion_topics, 'answers' => $answers, 'comments' => $comments]);
     }
 
     public function displayFormCreateDiscussionTopic()

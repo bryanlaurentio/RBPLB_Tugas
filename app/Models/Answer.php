@@ -13,7 +13,7 @@ class Answer extends Model
         'codeOfAnswer',
         'codeOfTopic',
         'nameOfAnswer',
-        'filledAnswer',
+        'filledOfAnswer',
     ];
 
     public function discussionTopic(){
