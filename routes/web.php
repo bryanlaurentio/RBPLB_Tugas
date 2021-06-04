@@ -36,7 +36,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //BRYAN
 Route::resource('material', 'MaterialController');
 
-// RIKI
+//RIKI
 Route::get('/discussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'displayDiscussionTopic']);
 Route::get('/formCreateDiscussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'displayFormCreateDiscussionTopic']);
 Route::get('/discussionTopic/detail/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'displayDetailDiscussionTopic']);
@@ -52,3 +52,8 @@ Route::get('/answer/backToDetail/{codeOfTopic}', [App\Http\Controllers\AnswerCon
 Route::get('/comment/{codeOfTopic}', [App\Http\Controllers\CommentController::class, 'displayFormCreateComment']);
 Route::post('/comment/create', [App\Http\Controllers\CommentController::class, 'createComment']);
 Route::get('/comment/backToDetail/{codeOfTopic}', [App\Http\Controllers\CommentController::class, 'displayBackToDetailDiscussionTopic']);
+
+Auth::routes();
+
+//ALIF
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
