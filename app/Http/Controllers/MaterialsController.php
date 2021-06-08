@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Material;
 use Illuminate\Http\Request;
-use App\Models\Materials;
 
-class MaterialController extends Controller
+class MaterialsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Responses
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $materials = Materials::all();
-
-        return view('halamanDaftarMateri', ['materials' => $materials]);
+        //
     }
 
     /**
@@ -28,7 +24,6 @@ class MaterialController extends Controller
     public function create()
     {
         //
-        return view('halamanUploadMateri');
     }
 
     /**
@@ -39,19 +34,7 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        $materials = new Materials([
-            'titleOfMaterial' => $request->get('titleOfMaterial'),
-            'nameOfTutor' => $request->get('nameOfTutor'),
-            'linkVideo' => $request->get('linkVideo'),
-            'categoryUser' => $request->get('categoryUser'),
-            'categoryMaterial' => $request->get('categoryMaterial')
-            ]);
-
-          $materials-> save();
-
-          $materials = Materials::all();
-
-          return view('/halamanDaftarMateri', ['materials' => $materials]);
+        //
     }
 
     /**
