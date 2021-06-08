@@ -3,68 +3,82 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DiscussionTopic;
-use App\Models\Answer;
-use App\Models\Comment;
 
 class DiscussionTopicController extends Controller
 {
-    public function displayDiscussionTopic()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $discussion_topics = DiscussionTopic::all();
-
-        return view('halamanForumDiskusi', ['discussion_topics' => $discussion_topics]);
+        //
     }
 
-    public function displayDetailDiscussionTopic($codeOfTopic)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
-        $answers = Answer::all()->where('codeOfTopic', $codeOfTopic);
-        $comments = Comment::all()->where('codeOfTopic', $codeOfTopic);
-
-        return view('halamanTopikDiskusi', ['discussion_topics' => $discussion_topics, 'answers' => $answers, 'comments' => $comments]);
+        //
     }
 
-    public function displayFormCreateDiscussionTopic()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        return view('halamanBuatTopikDiskusi');
+        //
     }
 
-    public function createDiscussionTopic(Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        \App\Models\DiscussionTopic::create([
-            'nameOfTopic' => $request->get('nameOfTopic'),
-            'categoryOfTopic' => $request->get('categoryOfTopic'),
-            'topicDescription' => $request->get('topicDescription'),
-          ]);
-
-          return redirect('/discussionTopic');
+        //
     }
 
-    public function displayFormEditDiscussionTopic($codeOfTopic)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-       $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
-
-        return view('halamanEditTopikDiskusi', ['discussion_topics' => $discussion_topics]);
+        //
     }
 
-    public function updateDiscussionTopic(Request $request, $codeOfTopic)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
-        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
-        $discussion_topics->nameOfTopic = $request->nameOfTopic;
-        $discussion_topics->categoryOfTopic = $request->categoryOfTopic;
-        $discussion_topics->topicDescription = $request->topicDescription;
-        $discussion_topics->save();
-
-        return redirect('/discussionTopic');
+        //
     }
 
-    public function deleteDiscussionTopic($codeOfTopic)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
-        $discussion_topics->delete();
-
-        return redirect('/discussionTopic');
+        //
     }
-
 }

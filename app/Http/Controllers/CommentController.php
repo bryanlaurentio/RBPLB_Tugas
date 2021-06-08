@@ -3,37 +3,82 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DiscussionTopic;
-use App\Models\Answer;
-use App\Models\Comment;
 
 class CommentController extends Controller
 {
-    public function displayFormCreateComment($codeOfTopic)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
-
-        return view('halamanBuatKomen', ['discussion_topics' => $discussion_topics]);
+        //
     }
 
-    public function createComment(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        \App\Models\Comment::create([
-            'nameOfCommentator' => $request->get('nameOfCommentator'),
-            'filledComment' => $request->get('filledComment'),
-            'codeOfTopic' => $request->get('codeOfTopic'),
-          ]);
-
-          // Masih bingung untuk return pada bagian ini
-          return;
+        //
     }
 
-    public function displayBackToDetailDiscussionTopic($codeOfTopic)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
-        $answers = Answer::all()->where('codeOfTopic', $codeOfTopic);
-        $comments = Comment::all()->where('codeOfTopic', $codeOfTopic);
+        //
+    }
 
-        return view('halamanTopikDiskusi', ['discussion_topics' => $discussion_topics, 'answers' => $answers, 'comments' => $comments]);
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
