@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DiscussionTopic;
+use App\Models\LiveTutor;
 
 class LiveTutorController extends Controller
 {
@@ -13,7 +15,9 @@ class LiveTutorController extends Controller
      */
     public function index()
     {
-        //
+        $LiveTutor = LiveTutor::all();
+
+        return view('liveTutor.halamanLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
 
     /**
