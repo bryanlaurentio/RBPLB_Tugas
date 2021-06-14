@@ -76,8 +76,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('icons') }}">
-                    <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                <a class="nav-link" href="{{ route('materi') }}">
+                    <i class="ni ni-planet text-blue"></i> {{ __('Materi') }}
                 </a>
             </li>
             <li class="nav-item ">
