@@ -32,26 +32,26 @@
 <div class="container">
     <form action="">
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Name Of Topic</label>
+            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Name Of Topic</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default" id="inputPassword">
+                <input type="text" class="form-control form-control-alternative bg-default" id="inputPassword" placeholder="nama topik" style="font-style:italic">
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Category Of Topic</label>
+            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Category Of Topic</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default" id="inputPassword">
+                <input type="text" class="form-control form-control-alternative bg-default" id="inputPassword" placeholder="kategori topik" style="font-style:italic">
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Description Topic</label>
+            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Description Topic</b></label>
             <div class="col-sm-10">
-                <textarea class="form-control form-control-alternative bg-default" rows="3" placeholder="Write a large text here ..."></textarea>
+                <textarea class="form-control form-control-alternative bg-default" rows="3" placeholder="deskripsi topik" style="font-style:italic"></textarea>
             </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-icon btn-3 btn-primary" type="button">
-                <span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span>    
+                <span class="btn-inner--icon"><i class="fas fa-paper-plane"></i></span>    
                 <span class="btn-inner--text">Simpan Topik Diskusi</span>
             </button>
         </div>    
