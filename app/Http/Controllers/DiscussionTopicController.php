@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DiscussionTopic;
 
 class DiscussionTopicController extends Controller
 {
@@ -13,7 +14,9 @@ class DiscussionTopicController extends Controller
      */
     public function index()
     {
-        //
+        $DiscussionTopic = DiscussionTopic::all();
+
+        return view('discussionForum.halamanForumDiskusi', ['DiscussionTopic' => $DiscussionTopic]);
     }
 
     /**

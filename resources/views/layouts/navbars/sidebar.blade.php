@@ -116,9 +116,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
+                    <a class="nav-link" href="{{ route('forumDiskusi') }}">
                       <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Tables</span>
+                      <span class="nav-link-text">Discussion Forum</span>
                     </a>
                 </li>
                 <li class="nav-item">
