@@ -19,6 +19,11 @@ class DiscussionTopicController extends Controller
         return view('discussionForum.halamanForumDiskusi', ['DiscussionTopic' => $DiscussionTopic]);
     }
 
+    public function displayFormCreateDiscussionTopic ()
+    {
+        return view('discussionForum.halamanBuatTopikDiskusi');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

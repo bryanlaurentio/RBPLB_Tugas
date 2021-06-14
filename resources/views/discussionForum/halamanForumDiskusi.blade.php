@@ -3,7 +3,7 @@
 @section('content')
 {{-- header --}}
 
-<div class="header bg-primary pb-6">
+<div class="header bg-primary pb-4">
     <div class="container-fluid">
        <div class="header-body">
           <br>
@@ -20,7 +20,7 @@
                     </nav>
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                    <a href="#" class="btn btn-sm btn-neutral">Buat Topik Diskusi</a>
+                    <a href="{{ route('forumDiskusi.createDiscussionTopic') }}" class="btn btn-sm btn-neutral">Buat Topik Diskusi</a>
                 </div>
             </div>
         </div>
