@@ -42,3 +42,7 @@ Route::get('table-list', function () {return view('pages.tables');})->name('tabl
 //Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+
+//materi
+Route::get('materi', function () {return view('materials.halamanDaftarMateri');})->name('materi');
+//Route::get('materi', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials.halamanDaftarMateri');
