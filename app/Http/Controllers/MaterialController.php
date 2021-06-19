@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Material;
+use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -13,7 +15,9 @@ class MaterialController extends Controller
      */
     public function displayHalamanMateri()
     {
-        return view('materials.halamanDaftarMateri');
+        $materials = Material::all();
+
+        return view('materials.halamanDaftarMateri', ['materials' => $materials]);
     }
 
     /**
@@ -21,9 +25,13 @@ class MaterialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function displayHalamanUploadMateri()
     {
         //
+        // $materials = DB::table('materials')
+        // ->get();
+
+        return view('materials.halamanUploadMateri');
     }
 
     /**
@@ -32,9 +40,39 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function addMaterial(Request $request)
     {
         //
+        // $request->validate([
+        //     'titleOfMaterial' => 'required',
+        //     'nameOfTutor' => 'required',
+        //     'linkVideo' => 'required'
+        // ]);
+        // DB::table('materials')->insert([
+        //     'titleOfMaterial' => $request->titleOfMaterial,
+        //     'nameOfTutor' => $request->nameOfTutor,
+        //     'linkVideo' => $request->linkVideo,
+        //     'categoryUser' => $request->categoryUser,
+        //     'categoryMaterial' => $request->categoryMaterial
+        // ]);
+
+        $request->validate([
+            'titleOfMaterial' => 'required',
+            'nameOfTutor' => 'required',
+            'linkVideo' => 'required'
+        ]);
+
+          Material::create($request->all());
+
+          return redirect()->route('materials.halamanDaftarMateri');
+        // return redirect('materials.halamanDaftarMateri');
+
+        // Material::create($request->all());
+
+        // /// redirect jika sukses menyimpan data
+        // return redirect()->route('materials.materi')
+
+
     }
 
     /**

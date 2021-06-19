@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Material extends Model
 {
-    public $timestamps = false;
-    protected $table = "materials";
+    // protected $table = "materials";
+    use HasFactory;
 
     protected $fillable = [
         'codeOfMaterial',

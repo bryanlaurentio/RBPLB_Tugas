@@ -20,7 +20,7 @@
             </nav>
           </div>
           <div class="col-lg-6 col-5 text-right">
-            <a href="#" class="btn btn-sm btn-neutral">New</a>
+            <a href="{{ route('materials.displayHalamanUploadMateri') }}" class="btn btn-sm btn-neutral">Upload Materi</a>
             <a href="#" class="btn btn-sm btn-neutral">Filters</a>
           </div>
         </div>
@@ -39,159 +39,25 @@
           </div>
           <div class="card-body">
             <div class="row icon-examples">
-              <div class="col-lg-4 col-md-100">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
-                    <div>
-                        <i class="ni ni-chart-bar-32"></i>
-                        <span><h3>Cara Menghitung Nilai Intrinsik Saham</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Riki Indramawan </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Saham </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="air-baloon">
-                    <div class = "col">
-                        <i class="ni ni-chart-bar-32"></i>
-                        <span><h3>Belajar Analisa Fundamental Perusahaan</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Riki Indramawan </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Saham </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-chart-bar-32"></i>
-                        <span><h3>Belajar Analisa Teknikal Saham</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Riki Indramawan </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Saham </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-single-copy-04"></i>
-                        <span><h3>Pentingnya Punya Asuransi</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Kevianwillie Handoyo </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Asuransi </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-chart-bar-32"></i>
-                        <span><h3>Bagaimana Bandar Bekerja?</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Kevianwillie Handoyo </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Saham </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-money-coins"></i>
-                        <span><h3>Sekilas Tentang Cryptocurrency</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Kevianwillie Handoyo </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Cryptocurrency </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-ui-04"></i>
-                        <span><h3>Apakah Obligasi Masih Menarik?</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Wahib Muhibi Nur </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Obligasi </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-ruler-pencil"></i>
-                        <span><h3>Sekilas Tentang Exchange Traded Fund (ETF)</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Wahib Muhibi Nur </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Reksadana </h4>
-                    </div>
-                </button>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <button type="button" class="btn-icon-clipboard" data-clipboard-text="album-2">
-                    <div>
-                        <i class="ni ni-ruler-pencil"></i>
-                        <span><h3>Reksadana VS Saham</h3></span>
-                    </div>
-                    <div class = "col">
-                        <span><br></span>
-                    </div>
-                    <div class = "col">
-                        <h5> Presented by: Wahib Muhibi Nur </h4>
-                    </div>
-                    <div class = "col">
-                        <h5> Category: Reksadana </h4>
-                    </div>
-                </button>
-            </div>
+                @foreach($materials as $m)
+                <div class="col-lg-4 col-md-100">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
+                        <div>
+                            <i class="ni ni-chart-bar-32"></i>
+                             <span><h3>Judul: {{ $m->titleOfMaterial }}</h3></span>
+                        </div>
+                        <div class = "col">
+                            <span><br></span>
+                        </div>
+                        <div class = "col">
+                            <h5>Tutor: {{ $m->nameOfTutor }} </h4>
+                        </div>
+                        <div class = "col">
+                            <h5>Kategori: {{ $m->categoryMaterial }}</h4>
+                        </div>
+                    </button>
+                </div>
+                @endforeach
             </div>
           </div>
         </div>

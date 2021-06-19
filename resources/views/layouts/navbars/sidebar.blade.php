@@ -106,7 +106,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('materi') }}">
+                    <a class="nav-link" href="{{ route('materials') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Materi') }}
                     </a>
                 </li>

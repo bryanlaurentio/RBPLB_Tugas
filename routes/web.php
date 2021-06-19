@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,10 @@ Route::get('table-list', function () {return view('pages.tables');})->name('tabl
 
 
 //materi
-Route::get('materi', function () {return view('materials.halamanDaftarMateri');})->name('materi');
-//Route::get('materi', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials.halamanDaftarMateri');
+Route::get('material', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials');
+Route::get('material/displayHalamanUploadMateri', [App\Http\Controllers\MaterialController::class, 'displayHalamanUploadMateri'])->name('materials.displayHalamanUploadMateri');
+Route::post('materi', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.addMaterial");
+// Route::resource('materials', MaterialController::class);
 
 // Forum Diskusi
 Route::get('forumDiskusi', [App\Http\Controllers\DiscussionTopicController::class, 'index'])->name('forumDiskusi');
