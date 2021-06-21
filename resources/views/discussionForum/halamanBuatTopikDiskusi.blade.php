@@ -30,27 +30,28 @@
 
 {{-- content --}}
 <div class="container">
-    <form action="">
+    <form action="{{ route('forumDiskusi.createDiscussionTopic.storeDiscussionTopic') }}" method="POST">
+        @csrf
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Name Of Topic</b></label>
+            <label for="nameOfTopic" class="col-sm-2 col-form-label"><b>Name Of Topic</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default" id="inputPassword" placeholder="nama topik" style="font-style:italic">
+                <input type="text" class="form-control form-control-alternative bg-default" id="nameOfTopic" placeholder="Tuliskan Nama Topik" name="nameOfTopic" required>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Category Of Topic</b></label>
+            <label for="categoryOfTopic" class="col-sm-2 col-form-label"><b>Category Of Topic</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default" id="inputPassword" placeholder="kategori topik" style="font-style:italic">
+                <input type="text" class="form-control form-control-alternative bg-default" id="categoryOfTopic" placeholder="Tuliskan Kategori Topik" name="categoryOfTopic" required>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Description Topic</b></label>
+            <label for="topicDescription" class="col-sm-2 col-form-label"><b>Description Topic</b></label>
             <div class="col-sm-10">
-                <textarea class="form-control form-control-alternative bg-default" rows="3" placeholder="deskripsi topik" style="font-style:italic"></textarea>
+                <textarea class="form-control form-control-alternative bg-default" rows="3" placeholder="Tuliskan Deskripsi Topik" id="topicDescription" name="topicDescription" required></textarea>
             </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-icon btn-3 btn-primary" type="button">
+            <button class="btn btn-icon btn-3 btn-primary" type="submit">
                 <span class="btn-inner--icon"><i class="fas fa-paper-plane"></i></span>    
                 <span class="btn-inner--text">Simpan Topik Diskusi</span>
             </button>

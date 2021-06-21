@@ -29,9 +29,21 @@ class DiscussionTopicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createDiscussionTopic(Request $request)
     {
-        //
+        $this->validate($request,[
+    		'nameOfTopic' => 'required',
+    		'categoryOfTopic' => 'required',
+            'topicDescription' => 'required'
+    	]);
+ 
+        DiscussionTopic::create([
+    		'nameOfTopic' => $request->nameOfTopic,
+    		'categoryOfTopic' => $request->categoryOfTopic,
+            'topicDescription' => $request->topicDescription
+    	]);
+ 
+    	return redirect('forumDiskusi');
     }
 
     /**
