@@ -52,10 +52,10 @@
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-icon btn-3 btn-primary" type="submit">
-                <span class="btn-inner--icon"><i class="fas fa-paper-plane"></i></span>    
+                <span class="btn-inner--icon"><i class="fas fa-paper-plane"></i></span>
                 <span class="btn-inner--text">Simpan Topik Diskusi</span>
             </button>
-        </div>    
+        </div>
     </form>
 </div>
 @endsection

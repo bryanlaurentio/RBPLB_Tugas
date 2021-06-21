@@ -47,8 +47,8 @@ Route::get('table-list', function () {return view('pages.tables');})->name('tabl
 //materi
 Route::get('material', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials');
 Route::get('material/displayHalamanUploadMateri', [App\Http\Controllers\MaterialController::class, 'displayHalamanUploadMateri'])->name('materials.displayHalamanUploadMateri');
-Route::post('materi', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.addMaterial");
-// Route::resource('materials', MaterialController::class);
+Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.displayHalamanUploadMateri.storeMaterial");
+
 
 // Forum Diskusi
 Route::get('forumDiskusi', [App\Http\Controllers\DiscussionTopicController::class, 'index'])->name('forumDiskusi');

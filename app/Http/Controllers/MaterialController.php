@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Material;
-use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -20,18 +19,33 @@ class MaterialController extends Controller
         return view('materials.halamanDaftarMateri', ['materials' => $materials]);
     }
 
+    public function displayHalamanUploadMateri()
+    {
+        return view('materials.halamanUploadMateri');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function displayHalamanUploadMateri()
+    public function addMaterial(Request $request)
     {
-        //
-        // $materials = DB::table('materials')
-        // ->get();
 
-        return view('materials.halamanUploadMateri');
+        $this->validate($request,[
+    		'titleOfMaterial' => 'required',
+            'nameOfTutor' => 'required',
+            'linkVideo' => 'required'
+    	]);
+        Material::create([
+    		'titleOfMaterial' => $request->titleOfMaterial,
+            'nameOfTutor' => $request->nameOfTutor,
+            'linkVideo' => $request->linkVideo,
+            'categoryUser' => $request->categoryUser,
+            'categoryMaterial' => $request->categoryMaterial
+    	]);
+
+        return redirect('material');
     }
 
     /**
@@ -40,41 +54,10 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function addMaterial(Request $request)
+    public function store(Request $request)
     {
         //
-        // $request->validate([
-        //     'titleOfMaterial' => 'required',
-        //     'nameOfTutor' => 'required',
-        //     'linkVideo' => 'required'
-        // ]);
-        // DB::table('materials')->insert([
-        //     'titleOfMaterial' => $request->titleOfMaterial,
-        //     'nameOfTutor' => $request->nameOfTutor,
-        //     'linkVideo' => $request->linkVideo,
-        //     'categoryUser' => $request->categoryUser,
-        //     'categoryMaterial' => $request->categoryMaterial
-        // ]);
-
-        $request->validate([
-            'titleOfMaterial' => 'required',
-            'nameOfTutor' => 'required',
-            'linkVideo' => 'required'
-        ]);
-
-          Material::create($request->all());
-
-          return redirect()->route('materials.halamanDaftarMateri');
-        // return redirect('materials.halamanDaftarMateri');
-
-        // Material::create($request->all());
-
-        // /// redirect jika sukses menyimpan data
-        // return redirect()->route('materials.materi')
-
-
     }
-
     /**
      * Display the specified resource.
      *

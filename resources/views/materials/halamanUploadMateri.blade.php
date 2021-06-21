@@ -30,24 +30,24 @@
 
 {{-- content --}}
 <div class="container">
-    <form action="{{ route('materials.addMaterial') }}" method = "POST">
+    <form action="{{ route('materials.displayHalamanUploadMateri.storeMaterial') }}" method = "POST">
         @csrf
         <div class="mb-3 row">
             <label for="inputPassword" class="col-sm-2 col-form-label"><b>Judul</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="titleOfMaterial"  name="titleOfMaterial" placeholder="Judul Materi">
+                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="titleOfMaterial"  name="titleOfMaterial" placeholder="Judul Materi" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="inputPassword" class="col-sm-2 col-form-label"><b>Nama Tutor</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="nameOfTutor" name="nameOfTutor" placeholder="Nama Tutor">
+                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="nameOfTutor" name="nameOfTutor" placeholder="Nama Tutor" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="inputPassword" class="col-sm-2 col-form-label"><b>Link Video</b></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="linkVideo" name="linkVideo" placeholder="Link Video">
+                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="linkVideo" name="linkVideo" placeholder="Link Video" required>
             </div>
         </div>
         <div class="mb-3 row">
@@ -76,7 +76,10 @@
             </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah Anda yakin ingin mengupload materi ini?')">Upload Materi</button>
+            <button class="btn btn-icon btn-3 btn-primary" type="submit">
+                <span class="btn-inner--icon"><i class="fas fa-paper-plane"></i></span>
+                <span class="btn-inner--text">Simpan Materi</span>
+            </button>
         </div>
     </form>
 </div>
