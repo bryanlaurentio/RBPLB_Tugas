@@ -33,46 +33,42 @@
     <form action="{{ route('materials.displayHalamanUploadMateri.storeMaterial') }}" method = "POST">
         @csrf
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Judul</b></label>
+            <label for="titleOfMaterial" class="col-sm-2 col-form-label"><b>Judul</b></label>
             <div class="col-sm-10">
                 <input type="text" class="form-control form-control-alternative bg-default btn-default" id="titleOfMaterial"  name="titleOfMaterial" placeholder="Judul Materi" required>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Nama Tutor</b></label>
+            <label for="nameOfTutor" class="col-sm-2 col-form-label"><b>Nama Tutor</b></label>
             <div class="col-sm-10">
                 <input type="text" class="form-control form-control-alternative bg-default btn-default" id="nameOfTutor" name="nameOfTutor" placeholder="Nama Tutor" required>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Link Video</b></label>
+            <label for="linkVideo" class="col-sm-2 col-form-label"><b>Link Video</b></label>
             <div class="col-sm-10">
                 <input type="text" class="form-control form-control-alternative bg-default btn-default" id="linkVideo" name="linkVideo" placeholder="Link Video" required>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Kategori User</b></label>
+            <label for="categoryUser" class="col-sm-2 col-form-label"><b>Kategori User</b></label>
             <div class="col-sm-10">
-                <form>
                     <select class="form-control form-control-alternative bg-default btn-default" data-toggle="select" data-minimum-results-for-search="Infinity" name = "categoryUser" id = "categoryUser">
-                        <option>Non Membership</option>
-                        <option>Membership</option>
+                        <option value = "Non Membership">Non Membership</option>
+                        <option value = "Membership">Membership</option>
                     </select>
-                </form>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label"><b>Kategori Materi</b></label>
+            <label for="categoryMaterial" class="col-sm-2 col-form-label"><b>Kategori Materi</b></label>
             <div class="col-sm-10">
-                <form>
                     <select class="form-control form-control-alternative bg-default btn-default" data-toggle="select" data-minimum-results-for-search="Infinity" name = "categoryMaterial" id = "categoryMaterial">
-                        <option>Saham</option>
-                        <option>Reksadana</option>
-                        <option>Obligasi</option>
-                        <option>Cryptocurrency</option>
-                        <option>Asuransi</option>
+                        <option value = "Saham">Saham</option>
+                        <option value = "Reksadana">Reksadana</option>
+                        <option value = "Obligasi">Obligasi</option>
+                        <option value = "Cryptocurrency">Cryptocurrency</option>
+                        <option value = "Asuransi">Asuransi</option>
                     </select>
-                </form>
             </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
