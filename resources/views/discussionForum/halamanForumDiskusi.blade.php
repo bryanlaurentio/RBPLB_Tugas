@@ -54,9 +54,15 @@
                             </td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <button class="btn btn-primary" type="button">Masuk</button>
-                                    <button class="btn btn-primary" type="button">Edit</button>
-                                    <button class="btn btn-primary" type="button">Hapus</button>
+                                    <a href="/forumDiskusi/topikDiskusi/{{ $dt->codeOfTopic }}">
+                                        <button class="btn btn-primary btn-sm" type="button">Masuk</button>
+                                    </a>
+                                    <a href="">
+                                        <button class="btn btn-warning btn-sm" type="button">Edit</button>
+                                    </a>
+                                    <a href="">
+                                        <button class="btn btn-danger btn-sm" type="button">Hapus</button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>

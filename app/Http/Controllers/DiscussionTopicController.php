@@ -46,15 +46,18 @@ class DiscussionTopicController extends Controller
     	return redirect('forumDiskusi');
     }
 
-    /**
-     * Store a newly created resource in storage.
+       /**
+     * Display the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    public function displayDiscussionTopic($id)
     {
-        //
+        $DiscussionTopic = DiscussionTopic::find($id);
+
+        return view('discussionForum.halamanDetailTopikDiskusi', ['DiscussionTopic' => $DiscussionTopic]);
     }
 
     /**
