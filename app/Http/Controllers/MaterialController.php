@@ -75,9 +75,10 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editMaterial(Material $codeOfMaterial)
     {
         //
+
     }
 
     /**
@@ -95,11 +96,14 @@ class MaterialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $codeOfMaterial
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteMaterial(Material $codeOfMaterial)
     {
         //
+        $codeOfMaterial->delete();
+        return redirect('material')->with('success', "Materi berhasil dihapus");
+
     }
 }

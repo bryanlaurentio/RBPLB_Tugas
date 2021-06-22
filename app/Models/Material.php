@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Material extends Model
 {
     protected $table = "materials";
+    protected $primaryKey = 'codeOfMaterial';
 
     protected $fillable = [
         'codeOfMaterial' ,

@@ -56,6 +56,19 @@
                             <h5>Kategori: {{ $m->categoryMaterial }}</h4>
                         </div>
                     </button>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <form action="#" method="POST">
+                            @method('EDIT')
+                            @csrf
+                            <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
+                        </form>
+                        <span>&nbsp &nbsp</span>
+                        <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />
+                        </form>
+                    </div>
                 </div>
                 @endforeach
             </div>
