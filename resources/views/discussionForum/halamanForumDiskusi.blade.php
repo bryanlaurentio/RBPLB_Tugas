@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($DiscussionTopic as $dt)
+                    @foreach ($discussion_topics as $dt)
                         <tr>
                             <td>
                                 <div class="media-body">

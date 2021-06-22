@@ -52,11 +52,13 @@ Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Contr
 
 Route::delete('material.delete.{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial');
 //Route::put('/material/delete/{codeOfMaterial}', 'MaterialController@deleteMaterial')->name('material.deleteMaterial');
+
+
 // Forum Diskusi
 Route::get('forumDiskusi', [App\Http\Controllers\DiscussionTopicController::class, 'index'])->name('forumDiskusi');
 Route::get('forumDiskusi/createDiscussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'displayFormCreateDiscussionTopic'])->name('forumDiskusi.createDiscussionTopic');
 Route::post('forumDiskusi/createDiscussionTopic/storeDiscussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'createDiscussionTopic'])->name("forumDiskusi.createDiscussionTopic.storeDiscussionTopic");
-Route::get('forumDiskusi/topikDiskusi/{id}', [App\Http\Controllers\DiscussionTopicController::class, 'displayDiscussionTopic']);
+Route::get('forumDiskusi/topikDiskusi/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'displayDetailDiscussionTopic']);
 
 // Live Tutor
 Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor');
