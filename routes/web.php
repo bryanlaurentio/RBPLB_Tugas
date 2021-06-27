@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'password'])->name('profile.password');
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
 
 // Auth::routes();
@@ -33,7 +34,7 @@ Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 
 // Route::resource('profile', '\App\Http\Controllers\ProfileController');
 
 Route::group(['middleware' => 'auth'], function () {
-Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+//Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 //Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 //Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
