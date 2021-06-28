@@ -31,6 +31,7 @@
 {{-- content --}}
 <div class="container">
     <form action="{{ route('materials.displayHalamanEditMateri.editMaterial', $material->codeOfMaterial) }}" method = "POST">
+        @method("patch")
         @csrf
         <div class="mb-3 row">
             <label for="titleOfMaterial" class="col-sm-2 col-form-label"><b>Judul</b></label>
