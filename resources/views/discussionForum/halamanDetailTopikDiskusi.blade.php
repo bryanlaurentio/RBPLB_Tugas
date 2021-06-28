@@ -11,7 +11,7 @@
           <br>
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Forum Diskusi</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Topik Diskusi</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -21,8 +21,8 @@
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">Buat Jawaban</a>
-              <a href="#" class="btn btn-sm btn-neutral">Buat Komen</a>
+              <a href="/forumDiskusi/topikDiskusi/buatJawaban/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Jawaban</a>
+              <a href="/forumDiskusi/topikDiskusi/buatKomentar/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Komentar</a>
             </div>
           </div>
         </div>
@@ -35,8 +35,8 @@
       <div class=" col ">
         <div class="card">
             <div class="card-header bg-transparent text-center">
-                <b><h1 class="mb-0">{{ $discussion_topics->nameOfTopic }}</h2></b><br>
-                <u><b><h3 class="mb-0">{{ $discussion_topics->categoryOfTopic }}</h4></b></u><br>
+                <b><h1 class="mb-0" style="color:#5e72e4">{{ $discussion_topics->nameOfTopic }}</h2></b><br>
+                <u><b><h3 class="mb-0" style="color: #172b4d">{{ $discussion_topics->categoryOfTopic }}</h4></b></u><br>
                 <h5 class="mb-0">{{ $discussion_topics->topicDescription }}</h5>
             </div><br>
             <div class="container">
@@ -60,7 +60,7 @@
                             </div>
                             <div>
                                 <i class="fas fa-user" style="color:#172b4d"></i>
-                                <span><h4 style="color:white">{{ $a->nameOfAnswer }} </h4></span>
+                                <span><h4 style="color:white">{{ $a->nameOfAnswer }}</h4></span>
                             </div>
                             <div>
                                 <span><br></span>
@@ -88,7 +88,7 @@
                             </div>
                             <div>
                                 <span><br></span>
-                            </div> 
+                            </div>
                             <div>
                                 <span><h5 style="color:white"">{{ $c->filledComment }}</h4></span>
                             </div>

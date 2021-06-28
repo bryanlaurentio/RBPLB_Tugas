@@ -38,13 +38,13 @@ class DiscussionTopicController extends Controller
     		'categoryOfTopic' => 'required',
             'topicDescription' => 'required'
     	]);
- 
+
         DiscussionTopic::create([
     		'nameOfTopic' => $request->nameOfTopic,
     		'categoryOfTopic' => $request->categoryOfTopic,
             'topicDescription' => $request->topicDescription
     	]);
- 
+
     	return redirect('forumDiskusi');
     }
 

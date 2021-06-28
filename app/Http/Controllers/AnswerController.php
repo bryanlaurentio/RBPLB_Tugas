@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\DiscussionTopic;
+use App\Models\Answer;
+use App\Models\Comment;
+
 class AnswerController extends Controller
 {
     /**
@@ -11,9 +15,11 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function displayFormCreateAnswer($codeOfTopic)
     {
-        //
+        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
+
+        return view('discussionForum/halamanBuatJawaban', ['discussion_topics' => $discussion_topics]);
     }
 
     /**
@@ -21,9 +27,17 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function storeAnswer(Request $request)
     {
-        //
+        \App\Models\Answer::create([
+            'nameOfAnswer' => $request->get('nameOfAnswer'),
+            'filledOfAnswer' => $request->get('filledOfAnswer'),
+            'codeOfTopic' => $request->get('codeOfTopic'),
+          ]);
+
+          // Masih bingung untuk return pada bagian ini
+          return redirect()->back();
     }
 
     /**

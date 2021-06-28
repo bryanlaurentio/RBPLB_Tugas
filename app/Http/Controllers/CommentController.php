@@ -11,9 +11,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function displayFormCreateComment($codeOfTopic)
     {
-        //
+        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
+
+        return view('discussionForum/halamanBuatKomentar', ['discussion_topics' => $discussion_topics]);
     }
 
     /**
@@ -21,9 +23,16 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function storeComment(Request $request)
     {
-        //
+        \App\Models\Comment::create([
+            'nameOfCommentator' => $request->get('nameOfCommentator'),
+            'filledComment' => $request->get('filledComment'),
+            'codeOfTopic' => $request->get('codeOfTopic'),
+          ]);
+
+          // Masih bingung untuk return pada bagian ini
+          return redirect()->back();
     }
 
     /**
