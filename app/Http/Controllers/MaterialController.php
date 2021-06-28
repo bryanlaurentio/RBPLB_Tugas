@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Material;
+use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -32,19 +33,13 @@ class MaterialController extends Controller
     public function addMaterial(Request $request)
     {
 
-        $this->validate($request,[
+        $request->validate([
     		'titleOfMaterial' => 'required',
             'nameOfTutor' => 'required',
             'linkVideo' => 'required'
     	]);
-        Material::create([
-    		'titleOfMaterial' => $request->titleOfMaterial,
-            'nameOfTutor' => $request->nameOfTutor,
-            'linkVideo' => $request->linkVideo,
-            'categoryUser' => $request->categoryUser,
-            'categoryMaterial' => $request->categoryMaterial
-    	]);
 
+        Material::create($request->all());
         return redirect('material');
     }
 
@@ -75,11 +70,14 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editMaterial(Material $codeOfMaterial)
+    public function displayHalamanEditMateri($codeOfMaterial)
     {
         //
+        $material = \App\Models\Material::find($codeOfMaterial);
+        return view('materials.HalamanEditMateri', ['material' => $material]);
 
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -88,9 +86,17 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function editMaterial(Request $request, Material $codeOfMaterial)
     {
-        //
+        $request->validate([
+            'titleOfMaterial' => 'required',
+            'nameOfTutor' => 'required',
+            'linkVideo' => 'required'
+        ]);
+
+        $codeOfMaterial->update($request->all());
+
+        return redirect('material');
     }
 
     /**
@@ -103,7 +109,7 @@ class MaterialController extends Controller
     {
         //
         $codeOfMaterial->delete();
-        return redirect('material')->with('success', "Materi berhasil dihapus");
+        return redirect('material');
 
     }
 }

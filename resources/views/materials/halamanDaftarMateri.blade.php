@@ -57,8 +57,7 @@
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <form action="#" method="POST">
-                            @method('EDIT')
+                        <form action="{{ route('materials.displayHalamanEditMateri', $m->codeOfMaterial)}}">
                             @csrf
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
                         </form>
