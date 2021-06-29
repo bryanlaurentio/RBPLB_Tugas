@@ -66,6 +66,11 @@ Route::get('forumDiskusi/topikDiskusi/buatJawaban/{codeOfTopic}', [App\Http\Cont
 Route::post('forumDiskusi/createAnswer/storeAnswer', [App\Http\Controllers\AnswerController::class, 'storeAnswer']);
 Route::get('forumDiskusi/topikDiskusi/buatKomentar/{codeOfTopic}', [App\Http\Controllers\CommentController::class, 'displayFormCreateComment']);
 Route::post('forumDiskusi/createAnswer/storeComment', [App\Http\Controllers\CommentController::class, 'storeComment']);
+Route::get('forumDiskusi/editTopikDiskusi/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'displayFormEditDiscussionTopic']);
+Route::post('forumDiskusi/editTopikDiskusi/updateTopikDiskusi/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'updateDiscussionTopic']);
+Route::get('forumDiskusi/delete/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'deleteDiscussionTopic']);
+
+
 
 // Live Tutor
 Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor');

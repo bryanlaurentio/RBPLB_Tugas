@@ -57,10 +57,10 @@
                                     <a href="/forumDiskusi/topikDiskusi/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-primary btn-sm" type="button">Masuk</button>
                                     </a>
-                                    <a href="">
+                                    <a href="forumDiskusi/editTopikDiskusi/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-warning btn-sm" type="button">Edit</button>
                                     </a>
-                                    <a href="">
+                                    <a href="forumDiskusi/delete/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-danger btn-sm" type="button">Hapus</button>
                                     </a>
                                 </div>

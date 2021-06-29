@@ -70,9 +70,12 @@ class DiscussionTopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function deleteDiscussionTopic($codeOfTopic)
     {
-        //
+        $discussion_topics = DiscussionTopic::find($codeOfTopic);
+        $discussion_topics->delete();
+
+        return redirect('forumDiskusi');
     }
 
     /**
@@ -81,9 +84,22 @@ class DiscussionTopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function displayFormEditDiscussionTopic($codeOfTopic)
     {
-        //
+       $discussion_topics = DiscussionTopic::find($codeOfTopic);
+
+        return view('discussionForum.halamanEditTopikDiskusi', ['discussion_topics' => $discussion_topics]);
+    }
+
+    public function updateDiscussionTopic(Request $request, $codeOfTopic)
+    {
+        $discussion_topics = DiscussionTopic::find($codeOfTopic);
+        $discussion_topics->nameOfTopic = $request->nameOfTopic;
+        $discussion_topics->categoryOfTopic = $request->categoryOfTopic;
+        $discussion_topics->topicDescription = $request->topicDescription;
+        $discussion_topics->save();
+
+        return redirect('forumDiskusi');
     }
 
     /**
