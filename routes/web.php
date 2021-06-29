@@ -48,6 +48,9 @@ Route::get('table-list', function () {return view('pages.tables');})->name('tabl
 //materi
 Route::get('material', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials');
 
+Route::get('material/detailMaterial/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanDetailMateri'])->name('materials.displayHalamanDetailMateri');
+
+
 Route::get('material/displayHalamanUploadMateri', [App\Http\Controllers\MaterialController::class, 'displayHalamanUploadMateri'])->name('materials.displayHalamanUploadMateri');
 Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.displayHalamanUploadMateri.storeMaterial");
 

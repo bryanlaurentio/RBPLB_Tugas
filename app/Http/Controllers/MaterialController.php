@@ -78,6 +78,13 @@ class MaterialController extends Controller
 
     }
 
+    public function displayHalamanDetailMateri($codeOfMaterial)
+    {
+        //
+        $material = \App\Models\Material::find($codeOfMaterial);
+        return view('materials.HalamanMateri', ['material' => $material]);
+
+    }
 
     /**
      * Update the specified resource in storage.
