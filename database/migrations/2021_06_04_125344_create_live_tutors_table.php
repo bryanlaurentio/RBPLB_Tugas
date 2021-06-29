@@ -20,6 +20,7 @@ class CreateLiveTutorsTable extends Migration
             $table->timestamp('dateLiveTutor');
             $table->integer('durationLiveTutor');
             $table->string('statusLiveTutor');
+            $table->string('linkLiveTutor');
             $table->timestamps();
         });
     }

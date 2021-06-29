@@ -20,6 +20,33 @@ class LiveTutorController extends Controller
         return view('liveTutor.halamanLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
 
+    public function displayFormCreateLiveTutor ()
+    {
+        return view('liveTutor.halamanBuatLiveTutor');
+    }
+
+    public function createLiveTutor(Request $request)
+    {
+        $this->validate($request,[
+    		'nameOfLiveTutor' => 'required',
+            'nameOfTutorInLiveTutor' => 'required',
+    		'dateLiveTutor' => 'required',
+            'durationLiveTutor' => 'required',
+            'statusLiveTutor' => 'required',
+            'linkLiveTutor' => 'required'
+    	]);
+
+        LiveTutor::create([
+    		'nameOfLiveTutor' => $request->nameOfLiveTutor,
+            'nameOfTutorInLiveTutor' => $request->nameOfTutorInLiveTutor,
+    		'dateLiveTutor' => $request->dateLiveTutor,
+            'durationLiveTutor' => $request->durationLiveTutor,
+            'statusLiveTutor' => $request->statusLiveTutor,
+            'linkLiveTutor' => $request->linkLiveTutor
+    	]);
+
+    	return redirect('liveTutor');
+    }
     /**
      * Show the form for creating a new resource.
      *

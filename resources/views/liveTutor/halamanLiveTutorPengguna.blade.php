@@ -20,7 +20,7 @@
             </nav>
           </div>
           <div class="col-lg-6 col-5 text-right">
-            <a href="{{ route('liveTutor.createLiveTutor') }}" class="btn btn-sm btn-neutral">Buat Live Tutor</a>
+            <a href="{{ route('forumDiskusi.createDiscussionTopic') }}" class="btn btn-sm btn-neutral">Request Live Tutor</a>
         </div>
           {{--<div class="col-lg-6 col-5 text-right">
             <a href="{{ route('materials.displayHalamanUploadMateri') }}" class="btn btn-sm btn-neutral">Upload Materi</a>
@@ -43,7 +43,7 @@
           <div class="card-body">
             <div class="row icon-examples">
                 @foreach($LiveTutor as $lt)
-                <div class="col-lg-12 col-md-100">
+                <div class="col-lg-4 col-md-100">
                     <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
                         <div>
                             <i class="ni ni-chart-bar-32"></i>
@@ -56,7 +56,7 @@
                             <h5>Tutor: {{ $lt->nameOfTutorInLiveTutor }} </h4>
                         </div>
                         <div class = "col">
-                            <h5>Status: {{ $lt->statusLiveTutor }}</h4>
+                            <h5>Kategori: {{ $lt->statusLiveTutor }}</h4>
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">

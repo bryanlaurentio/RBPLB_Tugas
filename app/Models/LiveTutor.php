@@ -14,5 +14,6 @@ class LiveTutor extends Model
         'dateLiveTutor',
         'durationLiveTutor',
         'statusLiveTutor',
+        'linkLiveTutor',
     ];
 }
