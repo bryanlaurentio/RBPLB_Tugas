@@ -44,10 +44,10 @@
             <div class="row icon-examples">
                 @foreach($LiveTutor as $lt)
                 <div class="col-lg-12 col-md-100">
-                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
                         <div>
                             <i class="ni ni-chart-bar-32"></i>
-                             <span><h3>Judul: {{ $lt->nameOfLiveTutor }}</h3></span>
+                             <span><h3>{{ $lt->nameOfLiveTutor }}</h3></span>
                         </div>
                         <div class = "col">
                             <span><br></span>
@@ -60,12 +60,12 @@
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <form action="{{ route('materials.displayHalamanEditMateri', $lt->codeLiveTutor)}}">
+                        <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $lt->codeLiveTutor)}}">
                             @csrf
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
                         </form>
                         <span>&nbsp &nbsp</span>
-                        <form action="{{ route('materials.deleteMaterial', $lt->codeLiveTutor)}}" method="POST">
+                        <form action="{{ route('liveTutor.deleteLiveTutor', $lt->codeLiveTutor)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />

@@ -74,11 +74,20 @@ class LiveTutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function displayHalamanEditLiveTutor($codeLiveTutor)
+    {
+        $LiveTutor = \App\Models\LiveTutor::find($codeLiveTutor);
+        return view('liveTutor.HalamanEditLiveTutor', ['LiveTutor' => $LiveTutor]);
+    }
+     public function show($id)
     {
         //
     }
-
+    public function displayHalamanDetailLiveTutor($codeLiveTutor)
+    {
+        $LiveTutor = \App\Models\LiveTutor::find($codeLiveTutor);
+        return view('liveTutor.HalamanLiveTutor', ['LiveTutor' => $LiveTutor]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -97,9 +106,20 @@ class LiveTutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function editLiveTutor(Request $request, LiveTutor $codeLiveTutor)
     {
-        //
+        $request->validate([
+            'nameOfLiveTutor' => 'required',
+            'nameOfTutorInLiveTutor' => 'required',
+            'dateLiveTutor' => 'required',
+            'durationLiveTutor' => 'required',
+            'statusLiveTutor' => 'required',
+            'linkLiveTutor' => 'required'
+        ]);
+
+        $codeLiveTutor->update($request->all());
+
+        return redirect('liveTutor');
     }
 
     /**
@@ -108,8 +128,11 @@ class LiveTutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteLiveTutor (LiveTutor $codeLiveTutor)
     {
         //
+        $codeLiveTutor->delete();
+        return redirect('liveTutor');
+
     }
 }
