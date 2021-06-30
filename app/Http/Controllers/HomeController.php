@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Models\Material;
+use App\Models\DiscussionTopic;
+use App\Models\LiveTutor;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $materials = Material::all()->take(3);
+        $discussion_topics = DiscussionTopic::all()->take(3);
+        $LiveTutor = LiveTutor::all()->take(3);
+        return view('dashboard', ['materials' => $materials,'discussion_topics' => $discussion_topics, 'LiveTutor' => $LiveTutor]);
     }
 }

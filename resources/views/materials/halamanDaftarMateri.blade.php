@@ -21,7 +21,6 @@
           </div>
           <div class="col-lg-6 col-5 text-right">
             <a href="{{ route('materials.displayHalamanUploadMateri') }}" class="btn btn-sm btn-neutral">Upload Materi</a>
-            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
           </div>
         </div>
       </div>
@@ -35,7 +34,7 @@
         <div class="card">
           <div class="card-header bg-transparent">
             <h2 class="mb-0">Materi</h2>
-            <h4 class="mb-0">Materi-materi yang tersaji dibawah ini sangat cocok untuk kalian yang mau terjun ke dunia saham!</h4>
+            <h4 class="mb-0">Materi-materi yang tersaji dibawah ini sangat cocok untuk kalian yang mau terjun ke dunia investasi!</h4>
           </div>
           <div class="card-body">
             <div class="row icon-examples">
