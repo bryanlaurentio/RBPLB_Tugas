@@ -33,12 +33,13 @@
           <div class="card-header bg-transparent">
             <h2 class="mb-0" style="text-align: center">{{ $LiveTutor->nameOfLiveTutor }}</h2>
             <h2 class="mb-0" style="text-align: center">Presented by: {{ $LiveTutor->nameOfTutorInLiveTutor }}</h2>
-          </div>
-          <div class="card-body" style="text-align: center">
+            <h2 class="mb-0" style="text-align: center">Link Zoom: {{ $LiveTutor->linkLiveTutor }}</h2>
+        </div>
+          {{--<div class="card-body" style="text-align: center">
             <p style="text-align:center;">
-                <iframe width="850" height="550" align="middle" src="{{ $LiveTutor->linkLiveTutor }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="850" height="550" align="middle" src="{{ $LiveTutor->linkLiveTutor }}" title="Zoom Live Meeting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </p>
-          </div>
+          </div>--}}
         </div>
       </div>
     </div>

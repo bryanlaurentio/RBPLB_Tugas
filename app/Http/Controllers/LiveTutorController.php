@@ -17,12 +17,12 @@ class LiveTutorController extends Controller
     {
         $LiveTutor = LiveTutor::all();
 
-        return view('liveTutor.halamanLiveTutor', ['LiveTutor' => $LiveTutor]);
+        return view('liveTutor/halamanLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
 
     public function displayFormCreateLiveTutor ()
     {
-        return view('liveTutor.halamanBuatLiveTutor');
+        return view('liveTutor/halamanBuatLiveTutor');
     }
 
     public function createLiveTutor(Request $request)
@@ -71,39 +71,39 @@ class LiveTutorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $codeLiveTutor
      * @return \Illuminate\Http\Response
      */
     public function displayHalamanEditLiveTutor($codeLiveTutor)
     {
         $LiveTutor = \App\Models\LiveTutor::find($codeLiveTutor);
-        return view('liveTutor.HalamanEditLiveTutor', ['LiveTutor' => $LiveTutor]);
+        return view('liveTutor/HalamanEditLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
-     public function show($id)
-    {
+    // public function show($codeLiveTutor)
+    //{
         //
-    }
+    //}
     public function displayHalamanDetailLiveTutor($codeLiveTutor)
     {
         $LiveTutor = \App\Models\LiveTutor::find($codeLiveTutor);
-        return view('liveTutor.HalamanLiveTutor', ['LiveTutor' => $LiveTutor]);
+        return view('liveTutor/HalamanLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $codeLiveTutor
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    //public function edit($codeLiveTutor)
+    //{
         //
-    }
+    //}
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $codeLiveTutor
      * @return \Illuminate\Http\Response
      */
     public function editLiveTutor(Request $request, LiveTutor $codeLiveTutor)
@@ -125,7 +125,7 @@ class LiveTutorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $codeLiveTutor
      * @return \Illuminate\Http\Response
      */
     public function deleteLiveTutor (LiveTutor $codeLiveTutor)
