@@ -1,11 +1,11 @@
 
-<div class="header pb-8 bg-gradient-primary pt-5 pt-md-8">
+<div class="header pb-8 bg-gradient-primary pt-5">
     <div class="container-fluid">
         <div class="header-body">
-            <h1 style="text-align: center"> Welcome to Profit.In </h1>
-            <h1 style="text-align: center"> Cari Cuan Bersama-sama! </h1>
+            <h1 style="text-align: center; color: white"> Welcome to Profit.In</h1>
+            <h1 style="text-align: center; color: white"> Cari Cuan Bersama-sama! </h1>
 
-            <h2 style="text-align: center"> Berikut adalah materi yang tersedia! </h2>
+            <h2 style="text-align: center; color: white"> Berikut adalah materi yang tersedia! </h2>
             <!-- Card stats -->
             <div class="card-body">
                 <div class="row icon-examples">
@@ -43,13 +43,13 @@
                 </div>
               </div>
               <br><br>
-              <h2 style="text-align: center"> Berikut adalah topik diskusi yang tersedia! </h2>
-              <table class="table align-items-center table-dark text-center">
+              <h2 style="text-align: center ; color: white"> Berikut adalah topik diskusi yang tersedia! </h2>
+              <table class="table align-items-center table-light text-center">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Name Of Topic</th>
-                        <th scope="col">Category Of Topic</th>
-                        <th scope="col">Option</th>
+                        <th scope="col" style="color: white">Name Of Topic</th>
+                        <th scope="col" style="color: white">Category Of Topic</th>
+                        <th scope="col" style="color: white">Option</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,15 +83,15 @@
                 </tbody>
             </table>
             <br><br>
-            <h2 style="text-align: center"> Berikut adalah live tutor yang tersedia! </h2>
+            <h2 style="text-align: center; color: white"> Berikut adalah live tutor yang tersedia! </h2>
             <div class="card-body">
                 <div class="row icon-examples">
                     @foreach($LiveTutor as $lt)
                     <div class="col-lg-12 col-md-100">
-                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
                             <div>
                                 <i class="ni ni-chart-bar-32"></i>
-                                 <span><h3>Judul: {{ $lt->nameOfLiveTutor }}</h3></span>
+                                 <span><h3>{{ $lt->nameOfLiveTutor }}</h3></span>
                             </div>
                             <div class = "col">
                                 <span><br></span>
@@ -104,12 +104,12 @@
                             </div>
                         </button>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <form action="{{ route('materials.displayHalamanEditMateri', $lt->codeLiveTutor)}}">
+                            <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $lt->codeLiveTutor)}}">
                                 @csrf
                                 <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
                             </form>
                             <span>&nbsp &nbsp</span>
-                            <form action="{{ route('materials.deleteMaterial', $lt->codeLiveTutor)}}" method="POST">
+                            <form action="{{ route('liveTutor.deleteLiveTutor', $lt->codeLiveTutor)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />

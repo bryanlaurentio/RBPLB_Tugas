@@ -38,12 +38,12 @@
           </div>
           <div class="card-body">
             <div class="row icon-examples">
-                @foreach($materials as $m)
+                @foreach ($materials as $m)
                 <div class="col-lg-4 col-md-100">
                     <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('materials.displayHalamanDetailMateri', $m->codeOfMaterial) }}'">
                         <div>
                             <i class="ni ni-chart-bar-32"></i>
-                             <span><h3>Judul: {{ $m->titleOfMaterial }}</h3></span>
+                           <span><h3>Judul: {{ $m->titleOfMaterial }}</h3></span>
                         </div>
                         <div class = "col">
                             <span><br></span>
