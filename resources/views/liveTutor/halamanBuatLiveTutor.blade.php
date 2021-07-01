@@ -47,7 +47,7 @@
         <div class="mb-3 row">
             <label for="dateLiveTutor" class="col-sm-2 col-form-label"><b>Tanggal Live Tutor</b></label>
             <div class="col-sm-10">
-                <input type="date" class="form-control form-control-alternative bg-default" id="dateLiveTutor" name="dateLiveTutor" required>
+                <input type="datetime-local" class="form-control form-control-alternative bg-default" id="dateLiveTutor" name="dateLiveTutor" required>
             </div>
         </div>
         <div class="mb-3 row">
@@ -65,7 +65,7 @@
         <div class="mb-3 row">
             <label for="linkLiveTutor" class="col-sm-2 col-form-label"><b>Link Live Tutor</b></label>
             <div class="col-sm-10">
-                <textarea class="form-control form-control-alternative bg-default" rows="3" placeholder="Letakkan Link Live Tutor" id="linkLiveTutor" name="linkLiveTutor" required></textarea>
+                <input type="text" class="form-control form-control-alternative bg-default" placeholder="Letakkan Link Live Tutor" id="linkLiveTutor" name="linkLiveTutor" required>
             </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

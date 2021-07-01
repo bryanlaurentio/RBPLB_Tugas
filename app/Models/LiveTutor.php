@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LiveTutor extends Model
 {
+    protected $table = "live_tutors";
+    protected $primaryKey = 'codeLiveTutor';
+
     protected $fillable = [
         'codeLiveTutor',
         'nameOfLiveTutor',

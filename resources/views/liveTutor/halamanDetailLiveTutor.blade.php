@@ -31,9 +31,13 @@
       <div class=" col ">
         <div class="card">
           <div class="card-header bg-transparent">
-            <h2 class="mb-0" style="text-align: center">{{ $LiveTutor->nameOfLiveTutor }}</h2>
-            <h2 class="mb-0" style="text-align: center">Presented by: {{ $LiveTutor->nameOfTutorInLiveTutor }}</h2>
-            <h2 class="mb-0" style="text-align: center">Link Zoom: {{ $LiveTutor->linkLiveTutor }}</h2>
+            <h1 class="mb-0" style="text-align: center">{{ $LiveTutor->nameOfLiveTutor }}</h1>
+            <h3 class="mb-0" style="text-align: center">Presented by: {{ $LiveTutor->nameOfTutorInLiveTutor }}</h3>
+            <p></p>
+            <h3 class="mb-0" style="text-align: left">Tanggal Live Tutor   :{{ $LiveTutor->dateLiveTutor }}</h3>
+            <h3 class="mb-0" style="text-align: left">Durasi Live Tutor    :{{ $LiveTutor->durationLiveTutor }} Jam</h3>
+            <h3 class="mb-0" style="text-align: left">Status Live Tutor    :{{ $LiveTutor->statusLiveTutor }}</h3>
+            <h3 class="mb-0" style="text-align: left">Link Zoom            :{{ $LiveTutor->linkLiveTutor }}</h3>
         </div>
           {{--<div class="card-body" style="text-align: center">
             <p style="text-align:center;">

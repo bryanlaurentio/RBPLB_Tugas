@@ -86,7 +86,7 @@ class LiveTutorController extends Controller
     public function displayHalamanDetailLiveTutor($codeLiveTutor)
     {
         $LiveTutor = \App\Models\LiveTutor::find($codeLiveTutor);
-        return view('liveTutor/HalamanLiveTutor', ['LiveTutor' => $LiveTutor]);
+        return view('liveTutor/HalamanDetailLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
     /**
      * Show the form for editing the specified resource.
