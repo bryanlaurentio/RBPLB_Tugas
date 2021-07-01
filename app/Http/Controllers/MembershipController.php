@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PaymentMethod;
+use App\Models\Membership;
 
-class PaymentMethodController extends Controller
+class MembershipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class PaymentMethodController extends Controller
      */
     public function index()
     {
-        //
+        $Membership = Membership::all();
+
+        return view('membership.show', ['membership' => $Membership]);
     }
 
     /**

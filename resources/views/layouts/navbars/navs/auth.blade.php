@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('membership') }}">
                         <i class="ni ni-planet text-blue"></i> {{ __('Membership') }}
                     </a>
                 </li>

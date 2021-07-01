@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Membership extends Model
 {
+    protected $table = "memberships";
+    protected $primaryKey = 'nameOfPackage';
+
     protected $fillable = [
         'nameOfPackage',
         'price',

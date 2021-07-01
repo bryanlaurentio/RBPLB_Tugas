@@ -86,3 +86,7 @@ Route::get('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Co
 Route::patch('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'editLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor.editLiveTutor');
 
 Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteLiveTutor'])->name('liveTutor.deleteLiveTutor');
+
+
+//Membership
+Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
