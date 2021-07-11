@@ -15,9 +15,12 @@ class MaterialController extends Controller
      */
     public function displayHalamanMateri()
     {
-        $materials = Material::all();
+
+        $materials = Material::paginate(9);
 
         return view('materials.halamanDaftarMateri', ['materials' => $materials]);
+
+
     }
 
     public function displayHalamanUploadMateri()
@@ -40,6 +43,7 @@ class MaterialController extends Controller
     	]);
 
         Material::create($request->all());
+        $request->session()->flash('alert-success', 'Materi Berhasil di Upload!');
         return redirect('material');
     }
 
@@ -102,7 +106,7 @@ class MaterialController extends Controller
         ]);
 
         $codeOfMaterial->update($request->all());
-
+        $request->session()->flash('alert-success', 'Materi Berhasil di Ubah!');
         return redirect('material');
     }
 

@@ -2,11 +2,67 @@
 <div class="header pb-8 bg-gradient-primary pt-5">
     <div class="container-fluid">
         <div class="header-body">
-            <h1 style="text-align: center; color: white"> Welcome to Profit.In</h1>
-            <h1 style="text-align: center; color: white"> Cari Cuan Bersama-sama! </h1>
-
-            <h2 style="text-align: center; color: white"> Berikut adalah materi yang tersedia! </h2>
+            <h1 style="text-align: center; color: white; font-size:50px"> Welcome to Profit.In</h1>
+            <h1 style="text-align: center; color: white"> Cari Cuan Bersama-sama! </h1> <br>
+            <h2 style="text-align: center; color: white">
+                Profit.In diharapkan dapat membantu user untuk mendapatkan pengetahuan, relasi, dan informasi yang dapat berguna untuk pengambilan keputusan di dunia investasi.
+                <br>Tujuan dari layanan ini dibuat yaitu kami ingin menghubungkan masyarakat yang tertarik dalam bidang investasi.
+            </h2><br>
+            <div style="text-align: center">
+                <a class="nav-link" href="{{ route('materials') }}">
+                    <button type="button" class="btn btn-neutral  btn-lg">{{ __('Belajar Sekarang!') }}</button>
+                </a>
+            </div>
+            <br>
+            <h1 style="text-align: center; color: white; font-size:30px"> Apa Kata Mereka? </h1><br>
             <!-- Card stats -->
+            <div class="card-body">
+                <div class="row icon-examples">
+                    <div class="col-lg-4 col-md-100">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                            <img src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br><br><br><br><br>
+                            <h3 style="text-align:center">Riki Indramawan <br> Tutor</h3>
+                            <h4 style="text-align:justify">Belajar investasi di Profit.In sangat dianjurkan, dikarenakan terdapat materi yang sesuai dengan kebutuhan kalian, bisa diskusi dengan teman-teman yang lain, serta ada sesi mentoring di live tutor!<h4>
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-100">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                            <img src="{{ asset('argon') }}/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br><br><br><br><br>
+                            <h3 style="text-align:center">Egy Kelok Sembilan<br> Membership</h3>
+                            <h4 style="text-align:justify">Dulu sebelum gw mengenal Profit.In porto selalu merah, bahkan pernah -40%. Semenjak gw kenal sebuah platform yang bernama Profit.In, porto gw selalu hijau, profit teruss!! Terimakasih Profit.In!<h4>
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-100">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                            <img src="{{ asset('argon') }}/img/theme/team-3-800x800.jpg" class="rounded-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br><br><br><br><br>
+                            <h3 style="text-align:center">Kevin Gideon <br> Membership</h3>
+                            <h4 style="text-align:justify">Belajar investasi di Profit.In keren poll! Disini kita bisa berdiskusi bareng temen temen yang lain, bahkan ada yang dari luar negeri jugaa. Kita dibimbing dengan tutor-tutor yang berpengalaman. GG pol ws pokoke!<h4>
+                        </button>
+                    </div>
+                </div>
+              </div><br>
+              <h2 style="text-align: center; color: white; font-size:30px"> Contoh Materi </h2>
             <div class="card-body">
                 <div class="row icon-examples">
                     @foreach($materials as $m)
@@ -43,8 +99,8 @@
                 </div>
               </div>
               <br><br>
-              <h2 style="text-align: center ; color: white"> Berikut adalah topik diskusi yang tersedia! </h2>
-              <table class="table align-items-center table-light text-center">
+              <h2 style="text-align: center ; color: white; font-size:30px"> Topik Diskusi </h2>
+              <br><table class="table align-items-center table-light text-center">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col" style="color: white">Name Of Topic</th>
@@ -83,7 +139,7 @@
                 </tbody>
             </table>
             <br><br>
-            <h2 style="text-align: center; color: white"> Berikut adalah live tutor yang tersedia! </h2>
+            <h2 style="text-align: center; color: white; font-size:30px"> Live Tutor </h2>
             <div class="card-body">
                 <div class="row icon-examples">
                     @foreach($LiveTutor as $lt)

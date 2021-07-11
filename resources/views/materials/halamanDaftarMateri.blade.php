@@ -37,6 +37,14 @@
             <h4 class="mb-0">Materi-materi yang tersaji dibawah ini sangat cocok untuk kalian yang mau terjun ke dunia investasi!</h4>
           </div>
           <div class="card-body">
+            <div class="flash-message">
+                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                  @if(Session::has('alert-' . $msg))
+
+                  <h2 class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></h2>
+                  @endif
+                @endforeach
+              </div>
             <div class="row icon-examples">
                 @foreach ($materials as $m)
                 <div class="col-lg-4 col-md-100">
@@ -61,16 +69,52 @@
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
                         </form>
                         <span>&nbsp &nbsp</span>
+
                         <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
+                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title" id="exampleModalLabel">Konfirmasi</h1>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <h2>Apakah Anda yakin ingin menghapus materi ini?</h2>
+                                      </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type = "submit" class="btn btn-icon btn-3 btn-primary">Delete</button>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
                         </form>
                     </div>
                 </div>
                 @endforeach
             </div>
           </div>
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="{{ $materials -> previousPageUrl() }}" tabindex="-1">
+                  <i class="fa fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="{{ $materials -> nextPageUrl() }}">
+                  <i class="fa fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
