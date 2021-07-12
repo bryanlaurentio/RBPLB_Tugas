@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
 
         //masih bingung
-        'status_user'
+        'role'
     ];
 
     /**

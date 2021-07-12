@@ -89,3 +89,9 @@ Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTuto
 
 //Membership
 Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
+
+//Admin
+Route::get('admin', [App\Http\Controllers\AdminController::class, 'displayHalamanAdmin'])->name('admin')->middleware('auth');
+
+Route::get('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'displayHalamanEditRole'])->name('admin.displayHalamanEditRole')->middleware('auth');;
+Route::patch('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'editRole'])->name('admin.displayHalamanEditRole.editRole')->middleware('auth');;

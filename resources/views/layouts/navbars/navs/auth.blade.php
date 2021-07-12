@@ -39,6 +39,11 @@
                         <i class="ni ni-planet text-blue"></i> {{ __('Membership') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin') }}">
+                        <i class="ni ni-diamond text-blue"></i> {{ __('Admin') }}
+                    </a>
+                </li>
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
