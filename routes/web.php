@@ -26,6 +26,7 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])-
 Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'password'])->name('profile.password');
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+Route::get('usermanual', [App\Http\Controllers\HomeController::class, 'displayHalamanUserManual'])->name('usermanual');
 
 
 // Auth::routes();

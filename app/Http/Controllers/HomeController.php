@@ -31,4 +31,8 @@ class HomeController extends Controller
         $LiveTutor = LiveTutor::all()->take(3);
         return view('dashboard', ['materials' => $materials,'discussion_topics' => $discussion_topics, 'LiveTutor' => $LiveTutor]);
     }
+    public function displayHalamanUserManual()
+    {
+        return view('users.halamanUserManual');
+    }
 }
