@@ -30,6 +30,18 @@
 {{-- content --}}
 <div class="header bg-primary pb-6">
     <div class="container-fluid">
+        <form action="{{ route('forumDiskusi.searchDiscussionTopic') }}" method = "GET">
+            <div class="input-group row">
+                <div class="col-4">
+                <input type="search" name="search" class="form-control rounded" placeholder="Cari Forum Diskusi" aria-label="Search"
+                  aria-describedby="search-addon" value="{{ old('search') }}" >
+                </div>
+                <div class="col-2">
+                <button type="submit" class="btn btn-secondary" value="search">Cari</button>
+                </div>
+            </div>
+            </form>
+            <br>
         <div class="table-responsive">
             <table class="table align-items-center table-dark text-center">
                 <thead class="thead-dark">

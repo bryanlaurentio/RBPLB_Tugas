@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DiscussionTopic;
 use App\Models\Answer;
 use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
 
 class DiscussionTopicController extends Controller
 {
@@ -101,6 +102,20 @@ class DiscussionTopicController extends Controller
 
         return redirect('forumDiskusi');
     }
+
+    public function searchDiscussionForum(Request $request)
+	{
+
+		$search = $request->search;
+
+
+		$discussion_topics = DB::table('discussion_topics')
+		->where('nameOfTopic','like',"%".$search."%")
+		->paginate();
+
+		return view('discussionForum.HalamanForumDiskusi',['discussion_topics' => $discussion_topics]);
+
+	}
 
     /**
      * Update the specified resource in storage.

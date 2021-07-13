@@ -57,6 +57,8 @@ Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Contr
 Route::get('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanEditMateri'])->name('materials.displayHalamanEditMateri')->middleware('auth');;
 Route::patch('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'editMaterial'])->name('materials.displayHalamanEditMateri.editMaterial')->middleware('auth');;
 
+Route::get('material/searchMaterial', [App\Http\Controllers\MaterialController::class, 'searchMaterial'])->name('materials.searchMaterial')->middleware('auth');;
+
 Route::delete('material.delete.{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial')->middleware('auth');;
 
 
@@ -73,6 +75,7 @@ Route::get('forumDiskusi/editTopikDiskusi/{codeOfTopic}', [App\Http\Controllers\
 Route::post('forumDiskusi/editTopikDiskusi/updateTopikDiskusi/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'updateDiscussionTopic'])->middleware('auth');
 Route::get('forumDiskusi/delete/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'deleteDiscussionTopic'])->middleware('auth');
 Route::get('forumDiskusi/topikDiskusi/buatLampiran/{codeOfTopic}', [App\Http\Controllers\AttachmentController::class, 'displayFormCreateAttachment'])->middleware('auth');
+Route::get('material/searchDiscussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'searchDiscussionForum'])->name('forumDiskusi.searchDiscussionTopic')->middleware('auth');;
 //Route::post('forumDiskusi/createAttachment/storeAttachment', [App\Http\Controllers\AttachmentController::class, 'storeAttachment'])->middleware('auth');
 
 

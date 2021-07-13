@@ -109,6 +109,23 @@ class MaterialController extends Controller
         $request->session()->flash('alert-success', 'Materi Berhasil di Ubah!');
         return redirect('material');
     }
+    public function searchMaterial(Request $request)
+	{
+
+		$search = $request->search;
+
+
+		$materials = DB::table('materials')
+		->where('titleOfMaterial','like',"%".$search."%")
+        ->orWhere('nameOfTutor', 'like', '%' . $search . '%')
+        ->orWhere('categoryMaterial', 'like', '%' . $search . '%')
+		->paginate();
+
+
+
+		return view('materials.HalamanDaftarMateri',['materials' => $materials]);
+
+	}
 
     /**
      * Remove the specified resource from storage.

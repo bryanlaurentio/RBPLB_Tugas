@@ -37,6 +37,18 @@
             <h4 class="mb-0">Materi-materi yang tersaji dibawah ini sangat cocok untuk kalian yang mau terjun ke dunia investasi!</h4>
           </div>
           <div class="card-body">
+            <form action="{{ route('materials.searchMaterial') }}" method = "GET">
+            <div class="input-group row">
+                <div class="col-4">
+                <input type="search" name="search" class="form-control rounded mr-sm-2" placeholder="Cari Materi Berdasarkan Judul, Tutor, atau Kategori" aria-label="Search"
+                  aria-describedby="search-addon" value="{{ old('search') }}" >
+                </div>
+                  <div class="col-2">
+                <button type="submit" class="btn btn-outline-primary" value="search">Cari</button>
+                </div>
+            </div>
+            </form>
+            <br>
             <div class="flash-message">
                 @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                   @if(Session::has('alert-' . $msg))
