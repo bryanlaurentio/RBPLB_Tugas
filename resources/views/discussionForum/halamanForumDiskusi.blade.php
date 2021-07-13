@@ -70,6 +70,23 @@
                 </tbody>
             </table>
         </div>
+        <nav aria-label="...">
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="{{ $discussion_topics -> previousPageUrl() }}" tabindex="-1">
+                  <i class="fa fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+
+              <li class="page-item">
+                <a class="page-link" href="{{ $discussion_topics -> nextPageUrl() }}">
+                  <i class="fa fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
     </div>
 </div>
 

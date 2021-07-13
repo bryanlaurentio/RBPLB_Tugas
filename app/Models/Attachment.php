@@ -12,8 +12,7 @@ class Attachment extends Model
     protected $fillable = [
         'codeOfAttachment',
         'codeOfTopic',
-        'titleOfImage',
-        'image',
+        'titleOfAttachment',
         'file',
     ];
 

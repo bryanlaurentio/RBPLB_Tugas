@@ -23,6 +23,7 @@
             <div class="col-lg-6 col-5 text-right">
               <a href="/forumDiskusi/topikDiskusi/buatJawaban/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Jawaban</a>
               <a href="/forumDiskusi/topikDiskusi/buatKomentar/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Komentar</a>
+              <a href="/forumDiskusi/topikDiskusi/buatLampiran/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Lampiran</a>
             </div>
           </div>
         </div>
@@ -42,14 +43,14 @@
             <div class="container">
                 <div>
                     <span><i class="fas fa-square" style="color:#5e72e4"></i></span>
-                    <span><b>Jawaban</b></span>
+                    <a href="#jawaban"><span><b>Jawaban</b></span></a>
                 </div>
                 <div>
                     <span><i class="fas fa-square" style="color:#172b4d"></i></span>
-                    <span><b>Komentar</b></span>
+                    <a href="#komentar"><span><b>Komentar</b></span></a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="jawaban">
                 <div class="row icon-examples">
                   @foreach($answers as $a)
                     <div class="col-lg-4 col-md-100">
@@ -73,7 +74,7 @@
                   @endforeach
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="komentar">
                 <div class="row icon-examples">
                     @foreach ($comments as $c)
                     <div class="col-lg-4 col-md-100">

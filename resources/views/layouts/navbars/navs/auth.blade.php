@@ -23,20 +23,19 @@
                         <i class="ni ni-planet text-blue"></i> {{ __('Materi') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('forumDiskusi') }}">
+                        <i class="fas fa-copy"></i> {{ __('Discussion Forum') }}
+                    </a>
+                </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('liveTutor') }}">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Live Tutor') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('forumDiskusi') }}">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Discussion Forum</span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('membership') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Membership') }}
+                        <i class="fas fa-user-check"></i> {{ __('Membership') }}
                     </a>
                 </li>
                 <li class="nav-item">

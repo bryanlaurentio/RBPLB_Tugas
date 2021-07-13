@@ -16,7 +16,7 @@ class DiscussionTopicController extends Controller
      */
     public function index()
     {
-        $discussion_topics = DiscussionTopic::all();
+        $discussion_topics = DiscussionTopic::paginate(10);
 
         return view('discussionForum.halamanForumDiskusi', ['discussion_topics' => $discussion_topics]);
     }

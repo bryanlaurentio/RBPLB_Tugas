@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attachment;
 use Illuminate\Http\Request;
 
 class AttachmentController extends Controller
@@ -11,9 +12,11 @@ class AttachmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function displayFormCreateAttachment($codeOfTopic)
     {
-        //
+        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
+
+        return view('discussionForum/halamanBuatLampiran', ['discussion_topics' => $discussion_topics]);
     }
 
     /**
@@ -21,9 +24,16 @@ class AttachmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function storeAttachment(Request $request)
     {
-        //
+        // $file = $request->file('file')->store('storage/app/public');
+
+        // \App\Models\Attachment::create([
+        //     'titleOfAttachment' => $request->get('titleOfAttachment'),
+        //     'file' => $file,
+        //   ]);
+
+        // return Berhasil;
     }
 
     /**

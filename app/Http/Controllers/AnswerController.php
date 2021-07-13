@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\DiscussionTopic;
-use App\Models\Answer;
-use App\Models\Comment;
-
 class AnswerController extends Controller
 {
     /**
