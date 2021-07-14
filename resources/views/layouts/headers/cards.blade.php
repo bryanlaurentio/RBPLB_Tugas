@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br> <br><br>
                             <h3 style="text-align:center">Riki Indramawan <br> Tutor</h3>
                             <h4 style="text-align:justify">Belajar investasi di Profit.In sangat dianjurkan, dikarenakan terdapat materi yang sesuai dengan kebutuhan kalian, bisa diskusi dengan teman-teman yang lain, serta ada sesi mentoring di live tutor!<h4>
                         </button>
@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br> <br><br>
                             <h3 style="text-align:center">Egy Kelok Sembilan<br> Membership</h3>
                             <h4 style="text-align:justify">Dulu sebelum gw mengenal Profit.In porto selalu merah, bahkan pernah -40%. Semenjak gw kenal sebuah platform yang bernama Profit.In, porto gw selalu hijau, profit teruss!! Terimakasih Profit.In!<h4>
                         </button>
@@ -55,9 +55,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br> <br><br>
                             <h3 style="text-align:center">Kevin Gideon <br> Membership</h3>
-                            <h4 style="text-align:justify">Belajar investasi di Profit.In keren poll! Disini kita bisa berdiskusi bareng temen temen yang lain, bahkan ada yang dari luar negeri jugaa. Kita dibimbing dengan tutor-tutor yang berpengalaman. GG pol ws pokoke!<h4>
+                            <h4 style="text-align:justify">Belajar investasi di Profit.In keren poll! Disini kita bisa berdiskusi bareng temen temen yang lain, bahkan ada yang dari luar negeri jugaa. Kita dibimbing dengan tutor-tutor yang berpengalaman<h4>
                         </button>
                     </div>
                 </div>

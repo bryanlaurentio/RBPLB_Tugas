@@ -47,19 +47,19 @@ Route::get('table-list', function () {return view('pages.tables');})->name('tabl
 
 
 //materi
-Route::get('material', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials')->middleware('auth');
+Route::get('material', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
-Route::get('material/detailMaterial/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanDetailMateri'])->name('materials.displayHalamanDetailMateri')->middleware('auth');
+Route::get('material/detailMaterial/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanDetailMateri'])->name('materials.displayHalamanDetailMateri')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');
 
-Route::get('material/displayHalamanUploadMateri', [App\Http\Controllers\MaterialController::class, 'displayHalamanUploadMateri'])->name('materials.displayHalamanUploadMateri')->middleware('auth');;
-Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.displayHalamanUploadMateri.storeMaterial")->middleware('auth');;
+Route::get('material/displayHalamanUploadMateri', [App\Http\Controllers\MaterialController::class, 'displayHalamanUploadMateri'])->name('materials.displayHalamanUploadMateri')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.displayHalamanUploadMateri.storeMaterial")->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
-Route::get('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanEditMateri'])->name('materials.displayHalamanEditMateri')->middleware('auth');;
-Route::patch('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'editMaterial'])->name('materials.displayHalamanEditMateri.editMaterial')->middleware('auth');;
+Route::get('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanEditMateri'])->name('materials.displayHalamanEditMateri')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::patch('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'editMaterial'])->name('materials.displayHalamanEditMateri.editMaterial')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
-Route::get('material/searchMaterial', [App\Http\Controllers\MaterialController::class, 'searchMaterial'])->name('materials.searchMaterial')->middleware('auth');;
+Route::get('material/searchMaterial', [App\Http\Controllers\MaterialController::class, 'searchMaterial'])->name('materials.searchMaterial')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
-Route::delete('material.delete.{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial')->middleware('auth');;
+Route::delete('material.delete.{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
 
 // Forum Diskusi

@@ -19,9 +19,11 @@
               </ol>
             </nav>
           </div>
+          @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
           <div class="col-lg-6 col-5 text-right">
             <a href="{{ route('materials.displayHalamanUploadMateri') }}" class="btn btn-sm btn-neutral">Upload Materi</a>
           </div>
+          @endif
         </div>
       </div>
     </div>
@@ -52,7 +54,6 @@
             <div class="flash-message">
                 @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                   @if(Session::has('alert-' . $msg))
-
                   <h2 class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></h2>
                   @endif
                 @endforeach
@@ -76,12 +77,12 @@
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                         <form action="{{ route('materials.displayHalamanEditMateri', $m->codeOfMaterial)}}">
                             @csrf
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
                         </form>
                         <span>&nbsp &nbsp</span>
-
                         <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
                             @method('DELETE')
                             @csrf
@@ -106,6 +107,7 @@
                                 </div>
                               </div>
                         </form>
+                        @endif
                     </div>
                 </div>
                 @endforeach
