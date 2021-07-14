@@ -61,7 +61,15 @@
             <div class="row icon-examples">
                 @foreach ($materials as $m)
                 <div class="col-lg-4 col-md-100">
-                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('materials.displayHalamanDetailMateri', $m->codeOfMaterial) }}'">
+                    @if(Auth::user()->role == "Non Membership" &&  $m->categoryUser == "Non Membership" )
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('materials.displayHalamanDetailMateri', $m->codeOfMaterial) }}'">
+                    @endif
+                    @if(Auth::user()->role == "Non Membership" && $m->categoryUser == "Membership" )
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('membership') }}'">
+                    @endif
+                    @if(Auth::user()->role == "Membership")
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('materials.displayHalamanDetailMateri', $m->codeOfMaterial) }}'">
+                    @endif
                         <div>
                             <i class="ni ni-chart-bar-32"></i>
                            <span><h3>Judul: {{ $m->titleOfMaterial }}</h3></span>
@@ -71,6 +79,9 @@
                         </div>
                         <div class = "col">
                             <h5>Tutor: {{ $m->nameOfTutor }} </h4>
+                        </div>
+                        <div class = "col">
+                            <h5>User: {{ $m->categoryUser }}</h4>
                         </div>
                         <div class = "col">
                             <h5>Kategori: {{ $m->categoryMaterial }}</h4>

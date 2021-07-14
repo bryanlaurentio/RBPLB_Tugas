@@ -49,7 +49,7 @@ Route::get('table-list', function () {return view('pages.tables');})->name('tabl
 //materi
 Route::get('material', [App\Http\Controllers\MaterialController::class, 'displayHalamanMateri'])->name('materials')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
-Route::get('material/detailMaterial/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanDetailMateri'])->name('materials.displayHalamanDetailMateri')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');
+Route::get('material/detailMaterial/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'displayHalamanDetailMateri'])->name('materials.displayHalamanDetailMateri')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin,Non Membership');
 
 Route::get('material/displayHalamanUploadMateri', [App\Http\Controllers\MaterialController::class, 'displayHalamanUploadMateri'])->name('materials.displayHalamanUploadMateri')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 Route::post('material/displayHalamanUploadMateri/storeMaterial', [App\Http\Controllers\MaterialController::class, 'addMaterial'])->name("materials.displayHalamanUploadMateri.storeMaterial")->middleware('auth')->middleware('checkRole:Tutor,Admin');
