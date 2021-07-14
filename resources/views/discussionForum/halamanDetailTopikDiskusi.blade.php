@@ -20,11 +20,13 @@
                 </ol>
               </nav>
             </div>
+            @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin" || Auth::user()->role == "Membership")
             <div class="col-lg-6 col-5 text-right">
-              <a href="/forumDiskusi/topikDiskusi/buatJawaban/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Jawaban</a>
-              <a href="/forumDiskusi/topikDiskusi/buatKomentar/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Komentar</a>
-              <a href="/forumDiskusi/topikDiskusi/buatLampiran/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Lampiran</a>
+                <a href="/forumDiskusi/topikDiskusi/buatJawaban/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Jawaban</a>
+                <a href="/forumDiskusi/topikDiskusi/buatKomentar/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Komentar</a>
+                <a href="/forumDiskusi/topikDiskusi/buatLampiran/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Buat Lampiran</a>
             </div>
+            @endif
           </div>
         </div>
     </div>
