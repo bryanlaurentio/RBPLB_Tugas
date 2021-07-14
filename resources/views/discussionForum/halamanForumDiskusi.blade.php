@@ -19,9 +19,11 @@
                         </ol>
                     </nav>
                 </div>
+                @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin" || Auth::user()->role == "Membership")
                 <div class="col-lg-6 col-5 text-right">
                     <a href="{{ route('forumDiskusi.createDiscussionTopic') }}" class="btn btn-sm btn-neutral">Buat Topik Diskusi</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -69,12 +71,14 @@
                                     <a href="/forumDiskusi/topikDiskusi/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-primary btn-sm" type="button">Masuk</button>
                                     </a>
+                                    @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                                     <a href="forumDiskusi/editTopikDiskusi/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-warning btn-sm" type="button">Edit</button>
                                     </a>
                                     <a href="forumDiskusi/delete/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-danger btn-sm" type="button">Hapus</button>
                                     </a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
