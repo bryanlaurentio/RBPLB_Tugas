@@ -126,12 +126,16 @@
                                     <a href="/forumDiskusi/topikDiskusi/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-primary btn-sm" type="button">Masuk</button>
                                     </a>
+                                    @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                                     <a href="forumDiskusi/editTopikDiskusi/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-warning btn-sm" type="button">Edit</button>
                                     </a>
+                                    @endif
+                                    @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                                     <a href="forumDiskusi/delete/{{ $dt->codeOfTopic }}">
                                         <button class="btn btn-danger btn-sm" type="button">Hapus</button>
                                     </a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

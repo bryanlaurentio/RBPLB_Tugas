@@ -57,8 +57,10 @@
                 <span class="btn-inner--text">Simpan Jawaban</span>
             </button>
         </div>
-    </form>
-</div>
+    </form><br><br><br>
+@include('layouts.footers.auth')
+
+
 @endsection
 
 @push('js')

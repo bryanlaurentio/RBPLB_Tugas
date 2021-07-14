@@ -1,3 +1,4 @@
+@if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin" || Auth::user()->role == "Membership")
 @extends('layouts.app')
 
 @section('content')
@@ -46,14 +47,14 @@
             <br>
         <div class="table-responsive">
             <table class="table align-items-center table-dark text-center">
-                <thead class="thead-dark">
+                <thead style="background-color: #f4f5f7; color : #172b4d">
                     <tr>
                         <th scope="col">Name Of Topic</th>
                         <th scope="col">Category Of Topic</th>
                         <th scope="col">Option</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     @foreach ($discussion_topics as $dt)
                         <tr>
                             <td>
@@ -108,7 +109,9 @@
 
 @endsection
 
+
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
 @endpush
+@endif

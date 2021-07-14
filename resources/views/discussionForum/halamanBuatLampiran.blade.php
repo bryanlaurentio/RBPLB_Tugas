@@ -57,8 +57,8 @@
                 <span class="btn-inner--text">Upload</span>
             </button>
         </div>
-    </form>
-</div>
+    </form><br><br><br><br><br>
+@include('layouts.footers.auth')
 @endsection
 
 @push('js')
