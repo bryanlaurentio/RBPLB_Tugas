@@ -82,6 +82,7 @@
                                 <h5>Kategori: {{ $m->categoryMaterial }}</h4>
                             </div>
                         </button>
+                        @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <form action="{{ route('materials.displayHalamanEditMateri', $m->codeOfMaterial)}}">
                                 @csrf
@@ -94,6 +95,7 @@
                                 <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />
                             </form>
                         </div>
+                        @endif
                     </div>
                     @endforeach
                 </div>
@@ -163,6 +165,7 @@
                                 <h5>Status: {{ $lt->statusLiveTutor }}</h4>
                             </div>
                         </button>
+                        @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $lt->codeLiveTutor)}}">
                                 @csrf
@@ -175,6 +178,7 @@
                                 <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />
                             </form>
                         </div>
+                        @endif
                     </div>
                     @endforeach
                 </div>
