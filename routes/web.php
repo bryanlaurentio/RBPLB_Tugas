@@ -61,6 +61,7 @@ Route::get('material/searchMaterial', [App\Http\Controllers\MaterialController::
 
 Route::delete('material/delete/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
+// Route::get('material/detailMaterial/{codeOfMaterial}/{file_name}', [App\Http\Controllers\MaterialController::class, 'downloadFile'])->name("downloadFile");
 //Route::get('material/detailMaterial/{codeOfMaterial}/download', [App\Http\Controllers\MaterialController::class, 'getDownload'])->name('materials.downloadMaterial')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin,Non Membership');
 // Forum Diskusi
 Route::get('forumDiskusi', [App\Http\Controllers\DiscussionTopicController::class, 'index'])->name('forumDiskusi')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');

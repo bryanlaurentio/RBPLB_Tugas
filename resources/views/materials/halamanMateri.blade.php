@@ -35,9 +35,14 @@
             <h2 class="mb-0" style="text-align: center">Presented by: {{ $material->nameOfTutor }}</h2>
           </div>
           <div class="card-body" style="text-align: center">
-                <h2>Lihat Materi</h2>
-                <a href="{{ $material->fileMaterial }}">{{ $material->fileMaterial }}</a></td>
-          </div>
+                <h2>Materi</h2>
+                    <form target="_blank" action="{{$material->fileMaterial}}">
+                        @csrf
+                        <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Lihat Materi" />
+                    </form>
+                {{-- <a target="_blank" href = "{{$material->fileMaterial}}}">{{$material->titleOfMaterial}}</a> --}}
+                {{-- <embed src="{{$material->fileMaterial}}" width="600" height="500" alt="pdf"/> --}}
+            </div>
           <div class="card-body" style="text-align: center">
             <p style="text-align:center;">
                 <iframe width="850" height="550" src="{{ $material->linkVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

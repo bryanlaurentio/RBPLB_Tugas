@@ -16,7 +16,7 @@ class AddFileMaterialToMaterialsTable extends Migration
         Schema::table('materials', function (Blueprint $table) {
             //
             $table->string('fileMaterial');
-    });
+        });
     }
 
     /**

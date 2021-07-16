@@ -42,32 +42,14 @@ class MaterialController extends Controller
             'linkVideo' => 'required',
             'fileMaterial' => 'required'
     	]);
-        $file = $request->file('fileMaterial');
+        // $fileMaterial = $request->file('fileMaterial');
 
-        // nama file
-        echo 'File Name: '.$file->getClientOriginalName();
-        echo '<br>';
+        // $nama_file = $fileMaterial->getClientOriginalName();
 
-                // ekstensi file
-        echo 'File Extension: '.$file->getClientOriginalExtension();
-        echo '<br>';
+        // //file upload
+        // $file_upload = 'argon/img/fileMaterial';
+        // $fileMaterial->move($file_upload,$nama_file);
 
-                // real path
-        echo 'File Real Path: '.$file->getRealPath();
-        echo '<br>';
-
-                // ukuran file
-        echo 'File Size: '.$file->getSize();
-        echo '<br>';
-
-                // tipe mime
-        echo 'File Mime Type: '.$file->getMimeType();
-
-                // isi dengan nama folder tempat kemana file diupload
-        $tujuan_upload = 'data_file';
-
-            // upload file
-        $file->move($tujuan_upload,$file->getClientOriginalName());
         Material::create($request->all());
         $request->session()->flash('alert-success', 'Materi Berhasil di Upload!');
         return redirect('material');
@@ -165,4 +147,9 @@ class MaterialController extends Controller
         $codeOfMaterial->delete();
         return redirect('material');
     }
+
+    // public function downloadFile(){
+    //     $path = public_path('argon\img\fileMaterial\zedemy.pdf');
+    //     return response()->download($path);
+    // }
 }
