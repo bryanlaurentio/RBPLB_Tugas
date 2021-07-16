@@ -71,6 +71,12 @@
                         <option value = "Asuransi">Asuransi</option>
                     </select>
             </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="fileMaterial" class="col-sm-2 col-form-label"><b>File Materi</b></label>
+            <div class="col-sm-10">
+                <input type="text" value = "{{ $material->fileMaterial }}" class="form-control form-control-alternative bg-default btn-default" id="fileMaterial"  name="fileMaterial" placeholder="File Materi" required>
+            </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-icon btn-3 btn-primary" type="submit">

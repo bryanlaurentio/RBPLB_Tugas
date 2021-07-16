@@ -94,21 +94,21 @@
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
                         </form>
                         <span>&nbsp &nbsp</span>
-                        <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
+                        {{-- <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Delete{{ $m->codeOfMaterial }} </button>
                             <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title" id="exampleModalLabel">Konfirmasi</h1>
+                                        <h1 class="modal-title" id="exampleModalLabel">Konfirmasi {{ $m->codeOfMaterial }}</h1>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                       </div>
                                       <div class="modal-body">
-                                        <h2>Apakah Anda yakin ingin menghapus materi ini?</h2>
+                                        <h2>Apakah Anda yakin ingin menghapus materi {{ $m->titleOfMaterial }}?</h2>
                                       </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,6 +117,11 @@
                                 </div>
                                 </div>
                               </div>
+                        </form> --}}
+                        <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <input class="btn btn-icon btn-3 btn-primary" onclick="return confirm('Apakah anda yakin ingin menghapus materi {{$m->titleOfMaterial}}?')" type="submit" value="Delete" />
                         </form>
                         @endif
                     </div>
@@ -153,3 +158,4 @@
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
 @endpush
+

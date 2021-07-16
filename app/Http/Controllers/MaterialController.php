@@ -39,9 +39,35 @@ class MaterialController extends Controller
         $request->validate([
     		'titleOfMaterial' => 'required',
             'nameOfTutor' => 'required',
-            'linkVideo' => 'required'
+            'linkVideo' => 'required',
+            'fileMaterial' => 'required'
     	]);
+        $file = $request->file('fileMaterial');
 
+        // nama file
+        echo 'File Name: '.$file->getClientOriginalName();
+        echo '<br>';
+
+                // ekstensi file
+        echo 'File Extension: '.$file->getClientOriginalExtension();
+        echo '<br>';
+
+                // real path
+        echo 'File Real Path: '.$file->getRealPath();
+        echo '<br>';
+
+                // ukuran file
+        echo 'File Size: '.$file->getSize();
+        echo '<br>';
+
+                // tipe mime
+        echo 'File Mime Type: '.$file->getMimeType();
+
+                // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'data_file';
+
+            // upload file
+        $file->move($tujuan_upload,$file->getClientOriginalName());
         Material::create($request->all());
         $request->session()->flash('alert-success', 'Materi Berhasil di Upload!');
         return redirect('material');
@@ -138,6 +164,5 @@ class MaterialController extends Controller
         //
         $codeOfMaterial->delete();
         return redirect('material');
-
     }
 }

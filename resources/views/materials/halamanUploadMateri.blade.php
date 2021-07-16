@@ -30,7 +30,7 @@
 
 {{-- content --}}
 <div class="container">
-    <form action="{{ route('materials.displayHalamanUploadMateri.storeMaterial') }}" method = "POST">
+    <form action="{{ route('materials.displayHalamanUploadMateri.storeMaterial') }}" method = "POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
             <label for="titleOfMaterial" class="col-sm-2 col-form-label"><b>Judul</b></label>
@@ -69,6 +69,12 @@
                         <option value = "Cryptocurrency">Cryptocurrency</option>
                         <option value = "Asuransi">Asuransi</option>
                     </select>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="linkVideo" class="col-sm-2 col-form-label"><b>File Material</b></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control form-control-alternative bg-default btn-default" id="fileMaterial" name="fileMaterial" placeholder="fileMaterial" required>
             </div>
         </div><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

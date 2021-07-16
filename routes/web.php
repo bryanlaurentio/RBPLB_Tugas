@@ -59,9 +59,9 @@ Route::patch('material/displayHalamanEditMateri/{codeOfMaterial}', [App\Http\Con
 
 Route::get('material/searchMaterial', [App\Http\Controllers\MaterialController::class, 'searchMaterial'])->name('materials.searchMaterial')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
-Route::delete('material.delete.{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::delete('material/delete/{codeOfMaterial}', [App\Http\Controllers\MaterialController::class, 'deleteMaterial'])->name('materials.deleteMaterial')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
-
+//Route::get('material/detailMaterial/{codeOfMaterial}/download', [App\Http\Controllers\MaterialController::class, 'getDownload'])->name('materials.downloadMaterial')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin,Non Membership');
 // Forum Diskusi
 Route::get('forumDiskusi', [App\Http\Controllers\DiscussionTopicController::class, 'index'])->name('forumDiskusi')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');
 Route::get('forumDiskusi/createDiscussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'displayFormCreateDiscussionTopic'])->name('forumDiskusi.createDiscussionTopic')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');

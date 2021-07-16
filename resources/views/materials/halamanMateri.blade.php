@@ -35,8 +35,12 @@
             <h2 class="mb-0" style="text-align: center">Presented by: {{ $material->nameOfTutor }}</h2>
           </div>
           <div class="card-body" style="text-align: center">
+                <h2>Lihat Materi</h2>
+                <a href="{{ $material->fileMaterial }}">{{ $material->fileMaterial }}</a></td>
+          </div>
+          <div class="card-body" style="text-align: center">
             <p style="text-align:center;">
-                <iframe width="850" height="550" align="middle" src="{{ $material->linkVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="850" height="550" src="{{ $material->linkVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </p>
           </div>
         </div>

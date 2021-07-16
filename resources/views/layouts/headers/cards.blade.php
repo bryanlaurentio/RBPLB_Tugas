@@ -92,7 +92,7 @@
                             <form action="{{ route('materials.deleteMaterial', $m->codeOfMaterial)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Delete" />
+                                <input class="btn btn-icon btn-3 btn-primary" onclick="return confirm('Apakah anda yakin ingin menghapus materi {{$m->titleOfMaterial}}?')" type="submit" value="Delete" />
                             </form>
                         </div>
                         @endif

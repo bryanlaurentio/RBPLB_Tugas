@@ -17,5 +17,6 @@ class Material extends Model
         'linkVideo',
         'categoryUser',
         'categoryMaterial',
+        'fileMaterial',
     ];
 }
