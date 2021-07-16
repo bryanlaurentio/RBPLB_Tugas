@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attachment;
+use App\Models\DiscussionTopic;
 use Illuminate\Http\Request;
 
 class AttachmentController extends Controller
@@ -26,15 +27,37 @@ class AttachmentController extends Controller
      */
     public function storeAttachment(Request $request)
     {
-        // $file = $request->file('file')->store('storage/app/public');
+            //Menyimpan file gambar
+            $file = $request->file('file');
 
-        // \App\Models\Attachment::create([
-        //     'titleOfAttachment' => $request->get('titleOfAttachment'),
-        //     'file' => $file,
-        //   ]);
+            $namaFile = time()."_".$file->getClientOriginalName();
 
-        // return Berhasil;
+            //foto upload
+            $file_upload = 'attachments';
+            $file->move($file_upload,$namaFile);
+
+            //membuat request dari database
+            Attachment::create([
+                'codeOfTopic'=>$request->codeOfTopic,
+                'file' =>$namaFile,
+                'titleOfAttachment'=>$request->titleOfAttachment,
+              ]);
+
+            $discussion_topics = DiscussionTopic::paginate(5);
+
+            return redirect()->back();
+            //return view('discussionForum.halamanForumDiskusi', ['discussion_topics' => $discussion_topics]);
     }
+
+    public function displayAttachment($codeOfTopic)
+    {
+        //$attachments = \App\Models\Attachment::find($codeOfTopic);
+        $discussion_topics = \App\Models\DiscussionTopic::find($codeOfTopic);
+        $attachments = Attachment::all()->where('codeOfTopic', $codeOfTopic);
+
+        return view('discussionForum/halamanLampiran', ['attachments' => $attachments, 'discussion_topics' => $discussion_topics]);
+    }
+
 
     /**
      * Store a newly created resource in storage.

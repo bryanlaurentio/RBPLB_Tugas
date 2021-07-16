@@ -46,6 +46,7 @@ class DiscussionTopicController extends Controller
             'topicDescription' => $request->topicDescription
     	]);
 
+
     	return redirect('forumDiskusi');
     }
 

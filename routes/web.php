@@ -77,7 +77,9 @@ Route::post('forumDiskusi/editTopikDiskusi/updateTopikDiskusi/{codeOfTopic}', [A
 Route::get('forumDiskusi/delete/{codeOfTopic}', [App\Http\Controllers\DiscussionTopicController::class, 'deleteDiscussionTopic'])->middleware('auth')->middleware('checkRole:Tutor,Admin');
 Route::get('forumDiskusi/topikDiskusi/buatLampiran/{codeOfTopic}', [App\Http\Controllers\AttachmentController::class, 'displayFormCreateAttachment'])->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');
 Route::get('material/searchDiscussionTopic', [App\Http\Controllers\DiscussionTopicController::class, 'searchDiscussionForum'])->name('forumDiskusi.searchDiscussionTopic')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
-//Route::post('forumDiskusi/createAttachment/storeAttachment', [App\Http\Controllers\AttachmentController::class, 'storeAttachment'])->middleware('auth');
+Route::post('forumDiskusi/createAttachment/storeAttachment', [App\Http\Controllers\AttachmentController::class, 'storeAttachment'])->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::get('forumDiskusi/topikDiskusi/lampiran/{codeOfTopic}', [App\Http\Controllers\AttachmentController::class, 'displayAttachment'])->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+
 
 // Live Tutor
 Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor');

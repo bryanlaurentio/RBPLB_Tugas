@@ -18,7 +18,7 @@ class CreateAttachmentsTable extends Migration
             $table->integer('codeOfTopic')->unsigned();
             $table->foreign('codeOfTopic')->references('codeOfTopic')->on('discussion_topics');
             $table->string('titleOfAttachment');
-            $table->string('file');
+            $table->binary('file');
             $table->timestamps();
         });
     }

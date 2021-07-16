@@ -41,7 +41,10 @@
             <div class="card-header bg-transparent text-center">
                 <b><h1 class="mb-0" style="color:#5e72e4">{{ $discussion_topics->nameOfTopic }}</h2></b><br>
                 <u><b><h3 class="mb-0" style="color: #172b4d">{{ $discussion_topics->categoryOfTopic }}</h4></b></u><br>
-                <h5 class="mb-0">{{ $discussion_topics->topicDescription }}</h5>
+                <h5 class="mb-0">{{ $discussion_topics->topicDescription }}</h5><br>
+                <div class="text-center">
+                    <a href="/forumDiskusi/topikDiskusi/lampiran/{{ $discussion_topics->codeOfTopic }}" class="btn btn-sm btn-neutral">Lihat Lampiran</a>
+                </div>
             </div><br>
             <div class="container">
                 <div>

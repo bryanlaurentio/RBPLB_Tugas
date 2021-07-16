@@ -31,7 +31,7 @@
 
 {{-- content --}}
 <div class="container">
-    <form action="forumDiskusi/createAttachment/storeAttachment" method="POST" enctype="multipart/form-data">
+    <form action="/forumDiskusi/createAttachment/storeAttachment" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
             <label for="codeOfTopic" class="col-sm-2 col-form-label"><b>Code Of Topic</b></label>
