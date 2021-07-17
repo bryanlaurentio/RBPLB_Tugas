@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('liveTutor') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Live Tutor') }}
+                        <i class="fas fa-signal"></i> {{ __('Live Tutor') }}
                     </a>
                 </li>
                 <li class="nav-item">
