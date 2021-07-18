@@ -81,19 +81,19 @@ Route::post('forumDiskusi/createAttachment/storeAttachment', [App\Http\Controlle
 Route::get('forumDiskusi/topikDiskusi/lampiran/{codeOfTopic}', [App\Http\Controllers\AttachmentController::class, 'displayAttachment'])->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
 
-// Live Tutor
+// LIVE TUTOR
 Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
-
-Route::get('liveTutor/createLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormCreateLiveTutor'])->name('liveTutor.createLiveTutor');
-Route::post('liveTutor/createLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'createLiveTutor'])->name("liveTutor.createLiveTutor.storeLiveTutor");
+//createliveTutor
+Route::get('liveTutor/createLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormCreateLiveTutor'])->name('liveTutor.createLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::post('liveTutor/createLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'createLiveTutor'])->name("liveTutor.createLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Tutor,Admin');
 // ini rencananya halaman live tutor untuk Pengguna Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor');
-
+//detailliveTutor
 Route::get('liveTutor/detailLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanDetailLiveTutor'])->name('liveTutor.displayHalamanDetailLiveTutor')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin,Non Membership');
-
-Route::get('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanEditLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor');
-Route::patch('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'editLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor.editLiveTutor');
-
-Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteLiveTutor'])->name('liveTutor.deleteLiveTutor');
+//editliveTutor
+Route::get('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanEditLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::patch('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'editLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor.editLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+//hapusliveTutor
+Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteLiveTutor'])->name('liveTutor.deleteLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
 
 //Membership
