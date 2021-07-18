@@ -29,6 +29,11 @@
             <a href="{{ route('liveTutor.createLiveTutor') }}" class="btn btn-sm btn-neutral">Request Live Tutor</a>
           </div>
           @endif
+          @if(Auth::user()->role == "Non Membership")
+          <div class="col-lg-6 col-5 text-right">
+            <a href="{{ route('membership') }}" class="btn btn-sm btn-neutral">Daftar Membership</a>
+          </div>
+          @endif
         </div>
       </div>
     </div>

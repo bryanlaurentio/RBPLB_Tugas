@@ -36,15 +36,8 @@ class LiveTutorController extends Controller
             'linkLiveTutor' => 'required'
     	]);
 
-        LiveTutor::create([
-    		'nameOfLiveTutor' => $request->nameOfLiveTutor,
-            'nameOfTutorInLiveTutor' => $request->nameOfTutorInLiveTutor,
-    		'dateLiveTutor' => $request->dateLiveTutor,
-            'durationLiveTutor' => $request->durationLiveTutor,
-            'statusLiveTutor' => $request->statusLiveTutor,
-            'linkLiveTutor' => $request->linkLiveTutor
-    	]);
-
+        LiveTutor::create($request->all());
+        $request->session()->flash('alert-success', 'Live Tutor Berhasil di Buat!');
     	return redirect('liveTutor');
     }
     /**
@@ -118,7 +111,7 @@ class LiveTutorController extends Controller
         ]);
 
         $codeLiveTutor->update($request->all());
-
+        $request->session()->flash('alert-success', 'Live Tutor Berhasil di Ubah!');
         return redirect('liveTutor');
     }
 
