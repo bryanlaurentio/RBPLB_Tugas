@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DiscussionTopic;
 use App\Models\LiveTutor;
+use Illuminate\Support\Facades\DB;
 
 class LiveTutorController extends Controller
 {
@@ -15,7 +15,7 @@ class LiveTutorController extends Controller
      */
     public function index()
     {
-        $LiveTutor = LiveTutor::all();
+        $LiveTutor = LiveTutor::paginate(2);
 
         return view('liveTutor/halamanLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
@@ -121,6 +121,23 @@ class LiveTutorController extends Controller
      * @param  int  $codeLiveTutor
      * @return \Illuminate\Http\Response
      */
+    public function searchLiveTutor(Request $request)
+	{
+
+		$search = $request->search;
+
+
+		$LiveTutor = DB::table('liveTutor')
+		->where('nameOfLiveTutor','like',"%".$search."%")
+        ->orWhere('nameOfTutorInLiveTutor', 'like', '%' . $search . '%')
+		->paginate();
+
+
+
+		return view('liveTutor.HalamanLiveTutor',['liveTutor' => $LiveTutor]);
+
+	}//
+
     public function deleteLiveTutor (LiveTutor $codeLiveTutor)
     {
         //
