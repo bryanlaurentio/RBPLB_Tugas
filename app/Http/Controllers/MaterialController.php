@@ -110,7 +110,10 @@ class MaterialController extends Controller
         $request->validate([
             'titleOfMaterial' => 'required',
             'nameOfTutor' => 'required',
-            'linkVideo' => 'required'
+            'linkVideo' => 'required',
+            'categoryUser' => 'required',
+            'categoryMaterial' => 'required',
+            'fileMaterial' => 'required'
         ]);
 
         $codeOfMaterial->update($request->all());

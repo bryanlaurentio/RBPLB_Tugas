@@ -10,6 +10,7 @@ class Material extends Model
     protected $table = "materials";
     protected $primaryKey = 'codeOfMaterial';
 
+    use HasFactory;
     protected $fillable = [
         'codeOfMaterial' ,
         'titleOfMaterial',
