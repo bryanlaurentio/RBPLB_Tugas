@@ -26,9 +26,12 @@ class CheckRole
         $user = \Auth::user()->role;
         if( $user == $role){
             return $next($request);
+        } elseif ($user == 'Banned'){
+            $request->session()->flash('alert-danger', 'Akun anda telah di ban.');
+            return redirect('/');
         }
     }
-
-    return redirect('membership');
+    $request->session()->flash('alert-danger', 'Anda tidak memiliki izin untuk mengakses halaman!');
+    return redirect('home');
 }
 }

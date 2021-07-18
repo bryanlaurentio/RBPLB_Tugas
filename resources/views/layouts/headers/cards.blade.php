@@ -2,6 +2,13 @@
 <div class="header pb-8 bg-gradient-primary pt-5">
     <div class="container-fluid">
         <div class="header-body">
+            <div class="flash-message">
+                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                  @if(Session::has('alert-' . $msg))
+                  <h2 class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></h2>
+                  @endif
+                @endforeach
+              </div>
             <h1 style="text-align: center; color: white; font-size:50px"> Welcome to Profit.In</h1>
             <h1 style="text-align: center; color: white"> Cari Cuan Bersama-sama! </h1> <br>
             <h2 style="text-align: center; color: white">

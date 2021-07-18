@@ -32,11 +32,13 @@
                         <i class="fas fa-user-check"></i> {{ __('Membership') }}
                     </a>
                 </li>
+                @if(Auth::user()->role == "Admin")
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin') }}">
                         <i class="ni ni-diamond text-blue"></i> {{ __('Admin') }}
                     </a>
                 </li>
+                @endif
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">

@@ -90,7 +90,6 @@
                         <hr class="my-4" />
                         <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
                             @csrf
-                            @method('put')
 
                             <h6 class="heading-small text-muted mb-4">{{ __('Password') }}</h6>
 
@@ -104,19 +103,19 @@
                             @endif
 
                             <div class="pl-lg-4">
-                                <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-current-password">{{ __('Current Password') }}</label>
-                                    <input type="password" name="old_password" id="input-current-password" class="form-control form-control-alternative{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
+                                <div class="form-group{{ $errors->has('current_password') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="password">{{ __('Current Password') }}</label>
+                                    <input type="password" name="current_password" id="current_password" class="form-control form-control-alternative{{ $errors->has('current_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
 
-                                    @if ($errors->has('old_password'))
+                                    @if ($errors->has('current_password'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('old_password') }}</strong>
+                                            <strong>{{ $errors->first('current_password') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                                 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-password">{{ __('New Password') }}</label>
-                                    <input type="password" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
+                                    <label class="form-control-label" for="new_password">{{ __('New Password') }}</label>
+                                    <input type="password" name="new_password" id="new_password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -125,8 +124,8 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-password-confirmation">{{ __('Confirm New Password') }}</label>
-                                    <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control form-control-alternative" placeholder="{{ __('Confirm New Password') }}" value="" required>
+                                    <label class="form-control-label" for="new_confirm_password">{{ __('Confirm New Password') }}</label>
+                                    <input type="password" name="new_confirm_password" id="new_confirm_password" class="form-control form-control-alternative" placeholder="{{ __('Confirm New Password') }}" value="" required>
                                 </div>
 
                                 <div class="text-center">

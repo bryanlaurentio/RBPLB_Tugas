@@ -53,6 +53,7 @@
                         <option value = "Non Membership">Non Membership</option>
                         <option value = "Admin">Admin</option>
                         <option value = "Tutor">Tutor</option>
+                        <option value = "Banned">Banned</option>
                     </select>
             </div>
         </div><br>

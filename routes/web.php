@@ -19,14 +19,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
 // Auth::routes();
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'password'])->name('profile.password');
-Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-Route::get('usermanual', [App\Http\Controllers\HomeController::class, 'displayHalamanUserManual'])->name('usermanual');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::post('/profile/password', [App\Http\Controllers\ProfileController::class, 'password'])->name('profile.password')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::get('usermanual', [App\Http\Controllers\HomeController::class, 'displayHalamanUserManual'])->name('usermanual')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
 
 // Auth::routes();
@@ -100,7 +100,7 @@ Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTuto
 Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
 
 //Admin
-Route::get('admin', [App\Http\Controllers\AdminController::class, 'displayHalamanAdmin'])->name('admin')->middleware('auth');
+Route::get('admin', [App\Http\Controllers\AdminController::class, 'displayHalamanAdmin'])->name('admin')->middleware('auth')->middleware('checkRole:Admin');
 
-Route::get('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'displayHalamanEditRole'])->name('admin.displayHalamanEditRole')->middleware('auth');;
-Route::patch('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'editRole'])->name('admin.displayHalamanEditRole.editRole')->middleware('auth');;
+Route::get('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'displayHalamanEditRole'])->name('admin.displayHalamanEditRole')->middleware('auth')->middleware('checkRole:Admin');
+Route::patch('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'editRole'])->name('admin.displayHalamanEditRole.editRole')->middleware('auth')->middleware('checkRole:Admin');

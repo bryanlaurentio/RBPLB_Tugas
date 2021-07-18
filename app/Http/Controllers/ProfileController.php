@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
-use App\Http\Requests\PasswordRequest;
+//use App\Http\Requests\PasswordRequest;
+use App\Rules\CurrentPasswordCheckRule;
 use Illuminate\Support\Facades\Hash;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -26,13 +30,12 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request)
     {
-        if (auth()->user()->id == 1) {
-            return back()->withErrors(['not_allow_profile' => __('You are not allowed to change data for a default user.')]);
-        }
+        $request->user()->update(
+            $request->all()
+        );
 
-        auth()->user()->update($request->all());
+        return redirect()->route('profile.edit');
 
-        return back()->withStatus(__('Profile successfully updated.'));
     }
 
     /**
@@ -41,14 +44,28 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\PasswordRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function password(PasswordRequest $request)
+    public function password(Request $request)
     {
-        if (auth()->user()->id == 1) {
-            return back()->withErrors(['not_allow_password' => __('You are not allowed to change the password for a default user.')]);
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
+            // The passwords not matches
+            //return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+            return response()->json(['errors' => ['current'=> ['Current password does not match']]], 422);
         }
+        //uncomment this if you need to validate that the new password is same as old one
 
-        auth()->user()->update(['password' => Hash::make($request->get('password'))]);
-
-        return back()->withPasswordStatus(__('Password successfully updated.'));
+        if(strcmp($request->get('current_password'), $request->get('new_password')) == 0){
+            //Current password and new password are same
+            //return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+            return response()->json(['errors' => ['current'=> ['New Password cannot be same as your current password']]], 422);
+        }
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6|confirmed',
+        ]);
+        //Change Password
+        $user = Auth::user();
+        $user->password = Hash::make($request->get('new_password'));
+        $user->save();
+        return $user;
     }
 }
