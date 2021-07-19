@@ -1,13 +1,13 @@
 <?php
 
+// Bryan Laurentio Anggoro
+// 05211940000007
+// RBPLB Kelompok 1;
+
 namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Material;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class MaterialTest extends TestCase
@@ -23,7 +23,7 @@ class MaterialTest extends TestCase
      */
     //disini saya mengggunakan @test dikarenakan untuk melakukan pendefinisian function
     /** @test */
-    public function test_example() //nama function bebas, test_input_record_ver1
+    public function create_data_in_materialdb() //nama function bebas, test_input_record_ver1
     {
         $response = $this->get('/');
         Material::factory()->create([
@@ -45,21 +45,6 @@ class MaterialTest extends TestCase
         // $user = factory(User::class)->create();
         $this->assertTrue(true);
         // $this->actingAs($user);
-    }
-    /** @test */
-    public function apakah_bisa_insert_student()
-    {
-        $response = $this->get('/');
-        return [
-            // error pada field name, jika name kosong
-            ['titleOfMaterial', ['titleOfMaterial' => '']],
-            ['nameOfTutor', ['nameOfTutor' => '']],
-            ['linkVideo', ['linkVideo' => '']],
-            ['categoryUser', ['categoryUser' => '']],
-            ['categoryMaterial', ['categoryMaterial' => '']],
-            ['fileMaterial', ['fileMaterial' => '']],
-        ];
-        $response->assertStatus(200);
     }
 }
 

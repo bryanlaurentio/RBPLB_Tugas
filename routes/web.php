@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'diplayHalamanUtama'])->name('home')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 
 // Auth::routes();
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');

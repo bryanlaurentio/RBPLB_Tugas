@@ -24,7 +24,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function diplayHalamanUtama()
     {
         $materials = Material::all()->take(3);
         $discussion_topics = DiscussionTopic::all()->take(3);
