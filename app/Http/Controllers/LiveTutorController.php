@@ -25,6 +25,11 @@ class LiveTutorController extends Controller
         return view('liveTutor/halamanBuatLiveTutor');
     }
 
+    public function displayFormRequestLiveTutor ()
+    {
+        return view('liveTutor/halamanRequestLiveTutor');
+    }
+
     public function createLiveTutor(Request $request)
     {
         $this->validate($request,[
@@ -38,6 +43,19 @@ class LiveTutorController extends Controller
 
         LiveTutor::create($request->all());
         $request->session()->flash('alert-success', 'Live Tutor Berhasil di Buat!');
+    	return redirect('liveTutor');
+    }
+
+    public function requestLiveTutor(Request $request)
+    {
+        $this->validate($request,[
+    		'nameOfLiveTutor' => 'required',
+    		'dateLiveTutor' => 'required',
+            'durationLiveTutor' => 'required',
+    	]);
+
+        LiveTutor::create($request->all());
+        $request->session()->flash('alert-success', 'Live Tutor Berhasil di Request!');
     	return redirect('liveTutor');
     }
     /**

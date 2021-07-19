@@ -65,7 +65,7 @@
                     @if(Auth::user()->role == "Non Membership" && $lt->categoryUser == "Membership" )
                         <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('membership') }}'">
                     @endif
-                    @if(Auth::user()->role == "Membership" ||Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
+                    @if(Auth::user()->role == "Non Membership" || Auth::user()->role == "Membership" || Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                         <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
                     @endif
                         <div>

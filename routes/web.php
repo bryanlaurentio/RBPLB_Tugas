@@ -94,7 +94,9 @@ Route::get('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Co
 Route::patch('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'editLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor.editLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 //hapusliveTutor
 Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteLiveTutor'])->name('liveTutor.deleteLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
-
+//requestliveTutor
+Route::get('liveTutor/requestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormRequestLiveTutor'])->name('liveTutor.requestLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::post('liveTutor/requestLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'requestLiveTutor'])->name("liveTutor.requestLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
 //Membership
 Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
