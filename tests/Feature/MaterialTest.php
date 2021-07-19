@@ -1,27 +1,19 @@
 <?php
 
-// Bryan Laurentio Anggoro
-// 05211940000007
-// RBPLB Kelompok 1;
+namespace Tests\Feature;
 
-namespace Tests\Unit;
-
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Material;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class MaterialTest extends TestCase
 {
-    //disini saya menggunakan WithoutMiddleware dikarenakan terdapat berbagai macam user
-    //dan apabila menggunakan Middleware maka browse halaman akan ke redirect ke halaman login
-    //dan tidak sesuai dengan kondisi yang diinginkan
-    use WithoutMiddleware;
     /**
-     * A basic unit test example.
+     * A basic feature test example.
      *
      * @return void
      */
-    //disini saya mengggunakan @test dikarenakan untuk melakukan pendefinisian function
     /** @test */
     public function create_data_in_materialdb() //nama function bebas, test_input_record_ver1
     {
@@ -45,4 +37,3 @@ class MaterialTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
