@@ -42,6 +42,14 @@
                         <div class="row align-items-center">
                             <h3 class="mb-0">{{ __('Edit Profile') }}</h3>
                         </div>
+                        <br>
+                        <div class="flash-message">
+                            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                              @if(Session::has('alert-' . $msg))
+                              <h2 class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></h2>
+                              @endif
+                            @endforeach
+                          </div>
                     </div>
                     <div class="card-body">
                         <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
@@ -88,49 +96,46 @@
                             </div>
                         </form>
                         <hr class="my-4" />
-                        <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
+                        <form action="{{route('profile.password')}}" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                             @csrf
-
-                            <h6 class="heading-small text-muted mb-4">{{ __('Password') }}</h6>
-
-                            @if (session('password_status'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('password_status') }}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
+                            <h6 class="heading-small text-muted mb-4">{{ __('Change Password') }}</h6>
 
                             <div class="pl-lg-4">
-                                <div class="form-group{{ $errors->has('current_password') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="password">{{ __('Current Password') }}</label>
-                                    <input type="password" name="current_password" id="current_password" class="form-control form-control-alternative{{ $errors->has('current_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="current_password">Old Password</label>
+                                                        <input type="password" name="current_password" class="form-control form-control-alternative @error('current_password') is-invalid @enderror" required
+                                                            placeholder="Enter current password">
+                                                        @error('current_password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
 
-                                    @if ($errors->has('current_password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('current_password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="new_password">{{ __('New Password') }}</label>
-                                    <input type="password" name="new_password" id="new_password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="new_password ">New Password</label>
+                                                        <input type="password" name="password" class="form-control form-control-alternative @error('password') is-invalid @enderror" required
+                                                            placeholder="Enter the new password">
+                                                        @error('password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
 
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="new_confirm_password">{{ __('Confirm New Password') }}</label>
-                                    <input type="password" name="new_confirm_password" id="new_confirm_password" class="form-control form-control-alternative" placeholder="{{ __('Confirm New Password') }}" value="" required>
-                                </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="confirm_password">Confirm Password</label>
+                                                        <input type="password" name="confirm_password" class="form-control form-control-alternative @error('confirm_password') is-invalid @enderror"required placeholder="Enter same password">
+                                                        @error('confirm_password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
 
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Change password') }}</button>
-                                </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit" id="formSubmit" class="btn btn-success mt-4">{{ __('Change Password') }}</button>
+                                                    </div>
                             </div>
                         </form>
                     </div>
