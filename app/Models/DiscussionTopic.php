@@ -9,6 +9,7 @@ class DiscussionTopic extends Model
 {
     protected $table = "discussion_topics";
     protected $primaryKey = 'codeOfTopic';
+    use HasFactory;
 
     protected $fillable = [
         'codeOfTopic',

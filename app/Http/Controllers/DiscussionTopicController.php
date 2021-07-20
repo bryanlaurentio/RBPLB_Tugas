@@ -15,7 +15,7 @@ class DiscussionTopicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function displayDiscussionForum()
     {
         $discussion_topics = DiscussionTopic::paginate(5);
 
