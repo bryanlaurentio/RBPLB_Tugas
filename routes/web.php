@@ -82,7 +82,7 @@ Route::get('forumDiskusi/topikDiskusi/lampiran/{codeOfTopic}', [App\Http\Control
 
 
 // LIVE TUTOR
-Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanLiveTutor'])->name('liveTutor')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 //createliveTutor
 Route::get('liveTutor/createLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormCreateLiveTutor'])->name('liveTutor.createLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 Route::post('liveTutor/createLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'createLiveTutor'])->name("liveTutor.createLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Tutor,Admin');
@@ -95,6 +95,7 @@ Route::patch('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\
 //hapusliveTutor
 Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteLiveTutor'])->name('liveTutor.deleteLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 //requestliveTutor
+Route::get('liveTutor/daftarRequestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayDaftarRequestLiveTutor'])->name('liveTutor.displayDaftarRequestLiveTutor')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
 Route::get('liveTutor/requestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormRequestLiveTutor'])->name('liveTutor.requestLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 Route::post('liveTutor/requestLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'requestLiveTutor'])->name("liveTutor.requestLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Tutor,Admin');
 

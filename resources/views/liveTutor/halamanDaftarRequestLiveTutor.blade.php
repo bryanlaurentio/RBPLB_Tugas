@@ -15,23 +15,11 @@
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">Live Tutor</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('liveTutor') }}">Live Tutor</a></li>
+                <li class="breadcrumb-item"><a href="#">Live Tutor Requested</a></li>
               </ol>
             </nav>
           </div>
-          @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
-          <div class="col-lg-6 col-5 text-right">
-            <a href="{{ route('liveTutor.displayDaftarRequestLiveTutor') }}" class="btn btn-sm btn-neutral">Live Tutor Requested</a>
-          </div>
-          <div class="col-lg-12 col-5 text-right">
-            <a href="{{ route('liveTutor.createLiveTutor') }}" class="btn btn-sm btn-neutral">Buat Live Tutor</a>
-          </div>
-          @endif
-          @if(Auth::user()->role == "Membership")
-          <div class="col-lg-6 col-5 text-right">
-            <a href="{{ route('liveTutor.createLiveTutor') }}" class="btn btn-sm btn-neutral">Request Live Tutor</a>
-          </div>
-          @endif
         </div>
       </div>
     </div>
@@ -44,7 +32,7 @@
         <div class="card">
           <div class="card-header bg-transparent">
             {{--<h2 class="mb-0">Live Tutor</h2>--}}
-            <h4 class="mb-0">Ikuti Live Tutor dan dapatkan banyak pengetahuan mengenai dunia saham!</h4>
+            <h4 class="mb-0">Berikut beberapa permintaan Live Tutor dari Pengguna Membership!</h4>
           </div>
           <div class="card-body">
             <div class="flash-message">
@@ -60,10 +48,10 @@
                     @if(Auth::user()->role == "Non Membership" && $lt->categoryUser == "Non Membership" )
                         <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
                     @endif
-                    @if(Auth::user()->role == "Non Membership")
+                    @if(Auth::user()->role == "Non Membership" && $lt->categoryUser == "Membership" )
                         <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('membership') }}'">
                     @endif
-                    @if(Auth::user()->role == "Membership" || Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
+                    @if(Auth::user()->role == "Non Membership" || Auth::user()->role == "Membership" || Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                         <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
                     @endif
                         <div>
@@ -74,23 +62,20 @@
                             <span><br></span>
                         </div>
                         <div class = "col">
-                            <h5>Tutor: {{ $lt->nameOfTutorInLiveTutor }} </h4>
-                        </div>
-                        <div class = "col">
-                            <h5>Status: {{ $lt->statusLiveTutor }}</h4>
+                            <h5>Tutor: {{ $lt->dateLiveTutor }} </h4>
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
                         <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $lt->codeLiveTutor)}}">
                             @csrf
-                            <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Edit" />
+                            <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Terima" />
                         </form>
                         <span>&nbsp &nbsp</span>
                         <form action="{{ route('liveTutor.deleteLiveTutor', $lt->codeLiveTutor)}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <input class="btn btn-icon btn-3 btn-primary" onclick="return confirm('Apakah anda yakin ingin menghapus Live Tutor {{$lt->nameOfLiveTutor}}?')" type="submit" value="Delete" />
+                            <input class="btn btn-icon btn-3 btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus Live Tutor {{$lt->nameOfLiveTutor}}?')" type="submit" value="Tolak" />
                         </form>
                         @endif
                     </div>

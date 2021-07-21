@@ -20,6 +20,13 @@ class LiveTutorController extends Controller
         return view('liveTutor/halamanLiveTutor', ['LiveTutor' => $LiveTutor]);
     }
 
+    public function displayDaftarRequestLiveTutor()
+    {
+        $LiveTutor = LiveTutor::paginate(2);
+
+        return view('liveTutor/halamanDaftarRequestLiveTutor', ['LiveTutor' => $LiveTutor]);
+    }
+
     public function displayFormCreateLiveTutor ()
     {
         return view('liveTutor/halamanBuatLiveTutor');
