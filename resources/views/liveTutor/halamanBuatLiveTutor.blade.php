@@ -47,7 +47,7 @@
         <div class="mb-3 row">
             <label for="dateLiveTutor" class="col-sm-2 col-form-label"><b>Tanggal Live Tutor</b></label>
             <div class="col-sm-10">
-                <input type="datetime-local" class="form-control form-control-alternative bg-default" id="dateLiveTutor" name="dateLiveTutor" required>
+                <input type="date" class="form-control form-control-alternative bg-default" id="dateLiveTutor" name="dateLiveTutor" required>
             </div>
         </div>
         <div class="mb-3 row">
@@ -59,7 +59,11 @@
         <div class="mb-3 row">
             <label for="statusLiveTutor" class="col-sm-2 col-form-label"><b>Status Live Tutor</b></label>
             <div class="col-sm-10">
-                <input type="string" class="form-control form-control-alternative bg-default" id="statusLiveTutor" placeholder="Ada/Akan Datang" name="statusLiveTutor" required>
+                    <select class="form-control form-control-alternative bg-default btn-default" data-toggle="select" data-minimum-results-for-search="Infinity" name = "statusLiveTutor" id = "statusLiveTutor">
+                        <option value = "Akan datang">Akan datang</option>
+                        <option value = "Sedang berlangsung">Sedang berlangsung</option>
+                        <option value = "Selesai">Selesai</option>
+                    </select>
             </div>
         </div>
         <div class="mb-3 row">

@@ -20,6 +20,9 @@
               </ol>
             </nav>
           </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="{{ route('liveTutor') }}" class="btn btn-sm btn-neutral">Kembali</a>
+        </div>
         </div>
       </div>
     </div>
@@ -45,14 +48,8 @@
             <div class="row icon-examples">
                 @foreach($RequestLiveTutor as $rlt)
                 <div class="col-lg-12 col-md-100">
-                    @if(Auth::user()->role == "Non Membership" && $rlt->categoryUser == "Non Membership" )
-                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $rlt->codeOfLiveTutor) }}'">
-                    @endif
-                    @if(Auth::user()->role == "Non Membership" && $rlt->categoryUser == "Membership" )
-                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('membership') }}'">
-                    @endif
                     @if(Auth::user()->role == "Non Membership" || Auth::user()->role == "Membership" || Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
-                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $rlt->codeOfLiveTutor) }}'">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40">
                     @endif
                         <div>
                             <i class="ni ni-chart-bar-32"></i>
@@ -61,24 +58,26 @@
                         <div class = "col">
                             <span><br></span>
                         </div>
-                        <div class = "col">
-                            <h5>Tanggal Permintaan: {{ $rlt->dateLiveTutor }} </h4>
+                        <div>
+                            <h5>Tanggal Permintaan Live Tutor : {{ $rlt->dateLiveTutor }} </h4>
                         </div>
                     </button>
+                    {{--
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
-                        <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $rlt->codeOfLiveTutor)}}">
+                        <form>
                             @csrf
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Terima" />
                         </form>
                         <span>&nbsp &nbsp</span>
-                        <form action="{{ route('liveTutor.deleteLiveTutor', $rlt->codeOfLiveTutor)}}" method="POST">
+                        <form>
                             @method('DELETE')
                             @csrf
                             <input class="btn btn-icon btn-3 btn-danger" onclick="return confirm('Apakah anda yakin ingin menolak Request Live Tutor {{$rlt->nameOfLiveTutor}}?')" type="submit" value="Tolak" />
                         </form>
                         @endif
                     </div>
+                    --}}
                 </div>
                 @endforeach
             </div>

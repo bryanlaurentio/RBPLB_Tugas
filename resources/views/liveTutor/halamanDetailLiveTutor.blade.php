@@ -20,6 +20,9 @@
               </ol>
             </nav>
           </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href="{{ route('liveTutor') }}" class="btn btn-sm btn-neutral">Kembali</a>
+        </div>
         </div>
       </div>
     </div>
@@ -32,12 +35,22 @@
         <div class="card">
           <div class="card-header bg-transparent">
             <h1 class="mb-0" style="text-align: center">{{ $LiveTutor->nameOfLiveTutor }}</h1>
-            <h3 class="mb-0" style="text-align: center">Presented by: {{ $LiveTutor->nameOfTutorInLiveTutor }}</h3>
-            <p></p>
-            <h3 class="mb-0" style="text-align: left">Tanggal Live Tutor   :{{ $LiveTutor->dateLiveTutor }}</h3>
-            <h3 class="mb-0" style="text-align: left">Durasi Live Tutor    :{{ $LiveTutor->durationLiveTutor }} Jam</h3>
-            <h3 class="mb-0" style="text-align: left">Status Live Tutor    :{{ $LiveTutor->statusLiveTutor }}</h3>
-            <h3 class="mb-0" style="text-align: left">Link Zoom            :{{ $LiveTutor->linkLiveTutor }}</h3>
+            <h3 class="mb-0" style="text-align: center">Oleh : {{ $LiveTutor->nameOfTutorInLiveTutor }}</h3>
+            <p><br></p>
+            <div class="row">
+                <h3 class="col-sm-3"></h3>
+                <h3 class="col-sm-3" style="text-align: left">Tanggal Live Tutor</h3>
+                <h3 class="col-sm-6" style="text-align: left">: {{$LiveTutor->dateLiveTutor}}</h3>
+                <h3 class="col-sm-3"></h3>
+                <h3 class="col-sm-3" style="text-align: left">Durasi Live Tutor</h3>
+                <h3 class="col-sm-6" style="text-align: left">: {{ $LiveTutor->durationLiveTutor }} Jam</h3>
+                <h3 class="col-sm-3"></h3>
+                <h3 class="col-sm-3" style="text-align: left">Status Live Tutor</h3>
+                <h3 class="col-sm-6" style="text-align: left">: {{ $LiveTutor->statusLiveTutor }}</h3>
+                <h3 class="col-sm-3"></h3>
+                <h3 class="col-sm-3" style="text-align: left">Link Zoom</h3>
+                <h3 class="col-sm-6" style="text-align: left"><a href="{{$LiveTutor->linkLiveTutor}}">: {{$LiveTutor->linkLiveTutor}}</a></h3>
+            </div>
         </div>
           {{--<div class="card-body" style="text-align: center">
             <p style="text-align:center;">

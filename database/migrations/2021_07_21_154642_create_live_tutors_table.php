@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRequestLiveTutorsTable extends Migration
+class CreateLiveTutorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateRequestLiveTutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('request_live_tutors', function (Blueprint $table) {
-            $table->increments("codeOfLiveTutor");
+        Schema::create('live_tutors', function (Blueprint $table) {
+            $table->increments('codeLiveTutor');
             $table->string('nameOfLiveTutor');
-            $table->timestamp('dateLiveTutor');
+            $table->string('nameOfTutorInLiveTutor');
+            $table->date('dateLiveTutor');
+            $table->integer('durationLiveTutor');
+            $table->string('statusLiveTutor');
+            $table->string('linkLiveTutor');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateRequestLiveTutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_live_tutors');
+        Schema::dropIfExists('live_tutors');
     }
 }

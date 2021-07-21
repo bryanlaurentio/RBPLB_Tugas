@@ -14,7 +14,7 @@ class CreateRequestLiveTutorsTable extends Migration
     public function up()
     {
         Schema::create('request_live_tutors', function (Blueprint $table) {
-            $table->increments('codeOfLiveTutor');
+            $table->increments("codeOfLiveTutor");
             $table->string('nameOfLiveTutor');
             $table->date('dateLiveTutor');
             $table->timestamps();

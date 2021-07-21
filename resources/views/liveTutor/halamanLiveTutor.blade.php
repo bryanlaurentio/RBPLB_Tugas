@@ -22,8 +22,6 @@
           @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
           <div class="col-lg-6 col-5 text-right">
             <a href="{{ route('liveTutor.displayDaftarRequestLiveTutor') }}" class="btn btn-sm btn-neutral">Live Tutor Requested</a>
-          </div>
-          <div class="col-lg-12 col-5 text-right">
             <a href="{{ route('liveTutor.createLiveTutor') }}" class="btn btn-sm btn-neutral">Buat Live Tutor</a>
           </div>
           @endif
@@ -73,11 +71,11 @@
                         <div class = "col">
                             <span><br></span>
                         </div>
-                        <div class = "col">
-                            <h5>Tutor: {{ $lt->nameOfTutorInLiveTutor }} </h4>
+                        <div>
+                            <h5>{{ $lt->nameOfTutorInLiveTutor }}</h5>
                         </div>
-                        <div class = "col">
-                            <h5>Status: {{ $lt->statusLiveTutor }}</h4>
+                        <div>
+                            <h5>{{ $lt->statusLiveTutor }}</h5>
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
