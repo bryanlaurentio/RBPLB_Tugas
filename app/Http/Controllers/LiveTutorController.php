@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LiveTutor;
+use App\Models\RequestLiveTutor;
 use Illuminate\Support\Facades\DB;
 
 class LiveTutorController extends Controller
@@ -13,7 +14,7 @@ class LiveTutorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function displayHalamanLiveTutor()
     {
         $LiveTutor = LiveTutor::paginate(2);
 
@@ -22,9 +23,9 @@ class LiveTutorController extends Controller
 
     public function displayDaftarRequestLiveTutor()
     {
-        $LiveTutor = LiveTutor::paginate(2);
+        $RequestLiveTutor = RequestLiveTutor::paginate(2);
 
-        return view('liveTutor/halamanDaftarRequestLiveTutor', ['LiveTutor' => $LiveTutor]);
+        return view('liveTutor/halamanDaftarRequestLiveTutor', ['RequestLiveTutor' => $RequestLiveTutor]);
     }
 
     public function displayFormCreateLiveTutor ()
@@ -58,10 +59,9 @@ class LiveTutorController extends Controller
         $this->validate($request,[
     		'nameOfLiveTutor' => 'required',
     		'dateLiveTutor' => 'required',
-            'durationLiveTutor' => 'required',
     	]);
 
-        LiveTutor::create($request->all());
+        RequestLiveTutor::create($request->all());
         $request->session()->flash('alert-success', 'Live Tutor Berhasil di Request!');
     	return redirect('liveTutor');
     }
@@ -146,28 +146,20 @@ class LiveTutorController extends Controller
      * @param  int  $codeLiveTutor
      * @return \Illuminate\Http\Response
      */
-    public function searchLiveTutor(Request $request)
-	{
-
-		$search = $request->search;
-
-
-		$LiveTutor = DB::table('liveTutor')
-		->where('nameOfLiveTutor','like',"%".$search."%")
-        ->orWhere('nameOfTutorInLiveTutor', 'like', '%' . $search . '%')
-		->paginate();
-
-
-
-		return view('liveTutor.HalamanLiveTutor',['liveTutor' => $LiveTutor]);
-
-	}//
 
     public function deleteLiveTutor (LiveTutor $codeLiveTutor)
     {
         //
         $codeLiveTutor->delete();
         return redirect('liveTutor');
+
+    }
+
+    public function deleteRequestLiveTutor (RequestLiveTutor $codeOfLiveTutor)
+    {
+        //
+        $codeOfLiveTutor->delete();
+        return redirect('liveTutor/halamanDaftarRequestLiveTutor');
 
     }
 }

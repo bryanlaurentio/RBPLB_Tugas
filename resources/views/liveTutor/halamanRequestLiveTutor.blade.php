@@ -30,7 +30,7 @@
 
 {{-- isi --}}
 <div class="container">
-    <form action="{{ route('liveTutor.createLiveTutor.storeLiveTutor') }}" method="POST">
+    <form action="{{ route('liveTutor.requestLiveTutor.storeLiveTutor') }}" method="POST">
         @csrf
         <div class="mb-3 row">
             <label for="nameOfLiveTutor" class="col-sm-2 col-form-label"><b>Nama Live Tutor</b></label>
@@ -41,13 +41,7 @@
         <div class="mb-3 row">
             <label for="dateLiveTutor" class="col-sm-2 col-form-label"><b>Tanggal Live Tutor</b></label>
             <div class="col-sm-10">
-                <input type="datetime-local" class="form-control form-control-alternative bg-default" id="dateLiveTutor" name="dateLiveTutor" required>
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="durationLiveTutor" class="col-sm-2 col-form-label"><b>Durasi Live Tutor</b></label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control form-control-alternative bg-default" id="durationLiveTutor" placeholder="Tuliskan Durasi Live Tutor" name="durationLiveTutor" required>
+                <input type="date" class="form-control form-control-alternative bg-default" id="dateLiveTutor" name="dateLiveTutor" required>
             </div>
         </div>
         <br>

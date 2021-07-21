@@ -29,7 +29,7 @@
           @endif
           @if(Auth::user()->role == "Membership")
           <div class="col-lg-6 col-5 text-right">
-            <a href="{{ route('liveTutor.createLiveTutor') }}" class="btn btn-sm btn-neutral">Request Live Tutor</a>
+            <a href="{{ route('liveTutor.requestLiveTutor') }}" class="btn btn-sm btn-neutral">Request Live Tutor</a>
           </div>
           @endif
         </div>

@@ -88,16 +88,18 @@ Route::get('liveTutor/createLiveTutor', [App\Http\Controllers\LiveTutorControlle
 Route::post('liveTutor/createLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'createLiveTutor'])->name("liveTutor.createLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Tutor,Admin');
 // ini rencananya halaman live tutor untuk Pengguna Route::get('liveTutor', [App\Http\Controllers\LiveTutorController::class, 'index'])->name('liveTutor');
 //detailliveTutor
-Route::get('liveTutor/detailLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanDetailLiveTutor'])->name('liveTutor.displayHalamanDetailLiveTutor')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin,Non Membership');
+Route::get('liveTutor/detailLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanDetailLiveTutor'])->name('liveTutor.displayHalamanDetailLiveTutor')->middleware('auth')->middleware('checkRole:Membership,Tutor,Admin');
 //editliveTutor
 Route::get('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'displayHalamanEditLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 Route::patch('liveTutor/displayHalamanEditLiveTutor/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'editLiveTutor'])->name('liveTutor.displayHalamanEditLiveTutor.editLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 //hapusliveTutor
 Route::delete('liveTutor/delete/{codeLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteLiveTutor'])->name('liveTutor.deleteLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 //requestliveTutor
-Route::get('liveTutor/daftarRequestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayDaftarRequestLiveTutor'])->name('liveTutor.displayDaftarRequestLiveTutor')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
-Route::get('liveTutor/requestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormRequestLiveTutor'])->name('liveTutor.requestLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
-Route::post('liveTutor/requestLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'requestLiveTutor'])->name("liveTutor.requestLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Tutor,Admin');
+Route::get('liveTutor/displayDaftarRequestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayDaftarRequestLiveTutor'])->name('liveTutor.displayDaftarRequestLiveTutor')->middleware('auth')->middleware('checkRole:Membership,Non Membership,Tutor,Admin');
+Route::get('liveTutor/requestLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'displayFormRequestLiveTutor'])->name('liveTutor.requestLiveTutor')->middleware('auth')->middleware('checkRole:Membership');
+Route::post('liveTutor/requestLiveTutor/storeLiveTutor', [App\Http\Controllers\LiveTutorController::class, 'requestLiveTutor'])->name("liveTutor.requestLiveTutor.storeLiveTutor")->middleware('auth')->middleware('checkRole:Membership');
+//deleteRequestLiveTutor
+Route::delete('liveTutor/displayDaftarRequestLiveTutor/deleteRequestLiveTutor/{codeOfLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteRequestLiveTutor'])->name('liveTutor.deleteRequestLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
 //Membership
 Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');

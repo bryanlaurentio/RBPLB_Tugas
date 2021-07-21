@@ -43,39 +43,39 @@
                 @endforeach
               </div>
             <div class="row icon-examples">
-                @foreach($LiveTutor as $lt)
+                @foreach($RequestLiveTutor as $rlt)
                 <div class="col-lg-12 col-md-100">
-                    @if(Auth::user()->role == "Non Membership" && $lt->categoryUser == "Non Membership" )
-                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
+                    @if(Auth::user()->role == "Non Membership" && $rlt->categoryUser == "Non Membership" )
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $rlt->codeOfLiveTutor) }}'">
                     @endif
-                    @if(Auth::user()->role == "Non Membership" && $lt->categoryUser == "Membership" )
+                    @if(Auth::user()->role == "Non Membership" && $rlt->categoryUser == "Membership" )
                         <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('membership') }}'">
                     @endif
                     @if(Auth::user()->role == "Non Membership" || Auth::user()->role == "Membership" || Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
-                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $lt->codeLiveTutor) }}'">
+                        <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40" onclick= "location.href='{{ route('liveTutor.displayHalamanDetailLiveTutor', $rlt->codeOfLiveTutor) }}'">
                     @endif
                         <div>
                             <i class="ni ni-chart-bar-32"></i>
-                             <span><h3>{{ $lt->nameOfLiveTutor }}</h3></span>
+                             <span><h3>{{ $rlt->nameOfLiveTutor }}</h3></span>
                         </div>
                         <div class = "col">
                             <span><br></span>
                         </div>
                         <div class = "col">
-                            <h5>Tutor: {{ $lt->dateLiveTutor }} </h4>
+                            <h5>Tanggal Permintaan: {{ $rlt->dateLiveTutor }} </h4>
                         </div>
                     </button>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         @if(Auth::user()->role == "Tutor" || Auth::user()->role == "Admin")
-                        <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $lt->codeLiveTutor)}}">
+                        <form action="{{ route('liveTutor.displayHalamanEditLiveTutor', $rlt->codeOfLiveTutor)}}">
                             @csrf
                             <input class="btn btn-icon btn-3 btn-primary" type="submit" value="Terima" />
                         </form>
                         <span>&nbsp &nbsp</span>
-                        <form action="{{ route('liveTutor.deleteLiveTutor', $lt->codeLiveTutor)}}" method="POST">
+                        <form action="{{ route('liveTutor.deleteLiveTutor', $rlt->codeOfLiveTutor)}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <input class="btn btn-icon btn-3 btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus Live Tutor {{$lt->nameOfLiveTutor}}?')" type="submit" value="Tolak" />
+                            <input class="btn btn-icon btn-3 btn-danger" onclick="return confirm('Apakah anda yakin ingin menolak Request Live Tutor {{$rlt->nameOfLiveTutor}}?')" type="submit" value="Tolak" />
                         </form>
                         @endif
                     </div>
@@ -86,13 +86,13 @@
           <nav aria-label="...">
             <ul class="pagination justify-content-end">
               <li class="page-item">
-                <a class="page-link" href="{{ $LiveTutor -> previousPageUrl() }}" tabindex="-1">
+                <a class="page-link" href="{{ $RequestLiveTutor -> previousPageUrl() }}" tabindex="-1">
                   <i class="fa fa-angle-left"></i>
                   <span class="sr-only">Previous</span>
                 </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="{{ $LiveTutor -> nextPageUrl() }}">
+                <a class="page-link" href="{{ $RequestLiveTutor -> nextPageUrl() }}">
                   <i class="fa fa-angle-right"></i>
                   <span class="sr-only">Next</span>
                 </a>
