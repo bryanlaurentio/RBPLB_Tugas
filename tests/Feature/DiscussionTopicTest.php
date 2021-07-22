@@ -15,20 +15,32 @@ class DiscussionTopicTest extends TestCase
      * @return void
      */
     /** @test */
-    public function create_data_in_discussion_topicsdb() //nama function bebas, test_input_record_ver1
-    {
-        $response = $this->get('/');
-        DiscussionTopic::factory()->create([
-            'nameOfTopic' => 'Investasi TI',
-            'categoryOfTopic' => 'Teknologi',
-            'topicDescription' => 'Membahas investasi TI'
-        ]);
 
-        $response->assertStatus(200);
+
+    // Nama : Riki Indramawan
+    // NRP  : 05211940000039
+
+
+    public function topik_diskusi_database ()
+    {
+        // Insert
+        $discussion_topics = DiscussionTopic::create(["nameOfTopic" => "Investasi TI","categoryOfTopic" => "Investasi", "topicDescription" => "Membahas investasi TI"]);
+        $this->assertDatabaseHas('discussion_topics', [
+                'nameOfTopic' => 'Investasi TI','categoryOfTopic' => "Investasi", 'topicDescription' => 'Membahas investasi TI'
+            ]);
+
+        // Update
+        DiscussionTopic::find($discussion_topics->codeOfTopic)->update(["nameOfTopic" => "Investasi Saham","categoryOfTopic" => "Saham", "topicDescription" => "Membahas Saham"]);
+
+        $this->assertDatabaseHas('discussion_topics', [
+            'nameOfTopic' => 'Investasi Saham','categoryOfTopic' => "Saham", 'topicDescription' => 'Membahas Saham'
+            ]);
+
+        // Delete
+        $hapus_topik =  DiscussionTopic::destroy($discussion_topics->codeOfTopic);
     }
 
-    /** @test */
-    public function user_can_browse_halaman_forumDiskusi()
+    public function menampilkan_halaman_forum_diskusi()
     {
         $response = $this->get(route('forumDiskusi'));
         $this->assertTrue(true);
