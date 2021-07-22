@@ -31,7 +31,6 @@ class CheckRole
             return redirect('/');
         }
     }
-    $request->session()->flash('alert-danger', 'Anda tidak memiliki izin untuk mengakses halaman!');
-    return redirect('home');
+    return redirect('membership');
 }
 }
