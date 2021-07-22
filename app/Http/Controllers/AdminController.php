@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Payment;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,24 @@ class AdminController extends Controller
 
         return view('admin.halamanAdmin', ['users' => $users]);
 
+
+    }
+
+    public function displayHalamanMembershipAdmin()
+    {
+
+        $payments = Payment::paginate(9);
+
+        return view('admin.halamanMembershipAdmin', ['payments' => $payments]);
+
+
+    }
+
+    public function displayHalamanDetailPayment($codeOfPayment)
+    {
+        //
+        $payment = \App\Models\Payment::find($codeOfPayment);
+        return view('admin.halamanDetailPayment', ['payment' => $payment]);
 
     }
 

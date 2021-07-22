@@ -109,3 +109,5 @@ Route::get('admin', [App\Http\Controllers\AdminController::class, 'displayHalama
 
 Route::get('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'displayHalamanEditRole'])->name('admin.displayHalamanEditRole')->middleware('auth')->middleware('checkRole:Admin');
 Route::patch('admin/displayHalamanEditRole/{id}', [App\Http\Controllers\AdminController::class, 'editRole'])->name('admin.displayHalamanEditRole.editRole')->middleware('auth')->middleware('checkRole:Admin');
+Route::get('admin/displayHalamanMembershipAdmin', [App\Http\Controllers\AdminController::class, 'displayHalamanMembershipAdmin'])->name('admin.displayHalamanMembershipAdmin')->middleware('auth')->middleware('checkRole:Admin');
+Route::get('admin/detailPayment/{codeOfPayment}', [App\Http\Controllers\AdminController::class, 'displayHalamanDetailPayment'])->name('admin.displayHalamanDetailPayment')->middleware('auth')->middleware('checkRole:Admin');
