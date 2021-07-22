@@ -40,6 +40,7 @@ class DiscussionTopicTest extends TestCase
         $hapus_topik =  DiscussionTopic::destroy($discussion_topics->codeOfTopic);
     }
 
+/** @test */
     public function menampilkan_halaman_forum_diskusi()
     {
         $response = $this->get(route('forumDiskusi'));

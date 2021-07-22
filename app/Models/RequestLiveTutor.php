@@ -10,6 +10,7 @@ class RequestLiveTutor extends Model
     protected $table = "request_live_tutors";
     protected $primaryKey = 'codeOfLiveTutor';
 
+    use HasFactory;
     protected $fillable = [
         'codeOfLiveTutor',
         'nameOfLiveTutor',
