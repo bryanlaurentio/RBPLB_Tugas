@@ -15,54 +15,58 @@
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="{{ route('membership') }}">Pilih Membership </a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('checkoutc') }}">Halaman Checkout</a></li>
                         </ol>
                     </nav>
+                </div>
+                <div class="col-lg-6 col-5 text-right">
+                    <a href="{{ route('membership') }}" class="btn btn-sm btn-neutral">Kembali</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 {{-- content --}}
-<!-- Start Featured Product -->
 <section class="bg-light">
     <div class="container py-5">
         <div class="row text-center py-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Pilih Paket Membership</h1>
+                <h1 class="h1">Halaman Checkout</h1>
+                <div>
+                    Anda telah memilih paket C bulan dengan durasi 365 hari dengan total pembayaran sebesar Rp900.000,- 
+                </div>
                 <p>
-                  Berikut merupakan paket membership yang tersedia dalam aplikasi profit.in. Dengan berlangganan paket membership, kamu akan mendapatkan fasilitas yang tidak didapatkan oleh
-                  pengguna non membership.
+                  Silahkan pilih metode pembayaran.
                 </p>
             </div>
         </div>
-            <div class="col-12 col-md-5 mb-4 center">
+        <div class="col-12 col-md-5 mb-4 center">
                 <div class="card h-100">
                     <div class="card-body">
-                        <p href="#" class="h2 text-center text-dark">Paket A</p>
-                        <p href="#" class="h2 text-center text-dark">Durasi : 30 hari</p>
-                            <p class="text-center">Rp100.000,-</p>
-                        <p class="text-center"><a class="btn btn-success" href="{{ route('checkouta')}}">Beli Paket</a></p>
+                        <p href="#" class="h2 text-center text-dark">BNI</p>
+                            <p class="text-center">BNI Virtual Account</p>
+                            <p class="text-center">1000000001</p>
+                            <p class="text-center"><a class="btn btn-success" href="{{ route('bnia')}}">Bayar</a></p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-5 mb-4 center">
                 <div class="card h-100">
                     <div class="card-body">
-                        <p href="#" class="h2 text-center text-dark">Paket B</p>
-                        <p href="#" class="h2 text-center text-dark">Durasi : 180 hari</p>
-                            <p class="text-center">Rp500.000,-</p>
-                        <p class="text-center"><a class="btn btn-success" href="{{ route('checkoutb')}}">Beli Paket</a></p>
+                        <p href="#" class="h2 text-center text-dark">BRI</p>
+                            <p class="text-center">BRI Virtual Account</p>
+                            <p class="text-center">1000000002</p>
+                            <p class="text-center"><a class="btn btn-success" href="{{ route('bric')}}">Bayar</a></p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-5 mb-4 center">
                 <div class="card h-100">
                     <div class="card-body">
-                        <p href="#" class="h2 text-center text-dark">Paket C</p>
-                        <p href="#" class="h2 text-center text-dark">Durasi : 365 hari</p>
-
-                            <p class="text-center">Rp900.000,-</p>
-                        <p class="text-center"><a class="btn btn-success" href="{{ route('checkoutc')}}">Beli Paket</a></p>
+                        <p href="#" class="h2 text-center text-dark">BCA</p>
+                            <p class="text-center">BCA Virtual Account</p>
+                            <p class="text-center">1000000003</p>
+                            <p class="text-center"><a class="btn btn-success" href="{{ route('bcac')}}">Bayar</a></p>
                     </div>
                 </div>
             </div>
@@ -77,3 +81,4 @@
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
 @endpush
+

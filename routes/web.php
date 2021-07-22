@@ -103,6 +103,19 @@ Route::delete('liveTutor/displayDaftarRequestLiveTutor/deleteRequestLiveTutor/{c
 
 //Membership
 Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
+Route::get('membership/checkouta', [App\Http\Controllers\MembershipController::class, 'checkouta'])->name('checkouta');
+Route::get('membership/checkouta/bri', [App\Http\Controllers\MembershipController::class, 'bria'])->name('bria');
+Route::get('membership/checkouta/bni', [App\Http\Controllers\MembershipController::class, 'bnia'])->name('bnia');
+Route::get('membership/checkouta/bca', [App\Http\Controllers\MembershipController::class, 'bcaa'])->name('bcaa');
+Route::post('membership/checkouta/bca/store', [App\Http\Controllers\MembershipController::class, 'storebank'])->name('storebank');
+Route::get('membership/checkoutb', [App\Http\Controllers\MembershipController::class, 'checkoutb'])->name('checkoutb');
+Route::get('membership/checkoutb/bri', [App\Http\Controllers\MembershipController::class, 'brib'])->name('brib');
+Route::get('membership/checkoutb/bni', [App\Http\Controllers\MembershipController::class, 'bnib'])->name('bnib');
+Route::get('membership/checkoutb/bca', [App\Http\Controllers\MembershipController::class, 'bcab'])->name('bcab');
+Route::get('membership/checkoutc', [App\Http\Controllers\MembershipController::class, 'checkoutc'])->name('checkoutc');
+Route::get('membership/checkoutc/bri', [App\Http\Controllers\MembershipController::class, 'bric'])->name('bric');
+Route::get('membership/checkoutc/bni', [App\Http\Controllers\MembershipController::class, 'bnic'])->name('bnic');
+Route::get('membership/checkoutc/bca', [App\Http\Controllers\MembershipController::class, 'bcac'])->name('bcac');
 
 //Admin
 Route::get('admin', [App\Http\Controllers\AdminController::class, 'displayHalamanAdmin'])->name('admin')->middleware('auth')->middleware('checkRole:Admin');
