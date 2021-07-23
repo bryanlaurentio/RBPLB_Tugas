@@ -102,7 +102,7 @@ Route::post('liveTutor/requestLiveTutor/storeLiveTutor', [App\Http\Controllers\L
 Route::delete('liveTutor/displayDaftarRequestLiveTutor/deleteRequestLiveTutor/{codeOfLiveTutor}', [App\Http\Controllers\LiveTutorController::class, 'deleteRequestLiveTutor'])->name('liveTutor.deleteRequestLiveTutor')->middleware('auth')->middleware('checkRole:Tutor,Admin');
 
 //Membership
-Route::get('membership', [App\Http\Controllers\MembershipController::class, 'index'])->name('membership');
+Route::get('membership', [App\Http\Controllers\MembershipController::class, 'displayHalamanDaftarPaketMembership'])->name('membership');
 Route::get('membership/checkouta', [App\Http\Controllers\MembershipController::class, 'checkouta'])->name('checkouta');
 Route::get('membership/checkouta/bri', [App\Http\Controllers\MembershipController::class, 'bria'])->name('bria');
 Route::get('membership/checkouta/bni', [App\Http\Controllers\MembershipController::class, 'bnia'])->name('bnia');

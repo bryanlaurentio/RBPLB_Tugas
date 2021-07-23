@@ -15,7 +15,7 @@ class MembershipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function displayHalamanDaftarPaketMembership()
     {
         $Membership = Membership::all();
 
@@ -68,7 +68,7 @@ class MembershipController extends Controller
             return redirect()->back();
             //return view('discussionForum.halamanForumDiskusi', ['discussion_topics' => $discussion_topics]);
     }
-    
+
     public function checkoutb()
     {
         $User = User::all();

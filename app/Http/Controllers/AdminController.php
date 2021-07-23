@@ -36,6 +36,7 @@ class AdminController extends Controller
     {
         //
         $payment = \App\Models\Payment::find($codeOfPayment);
+        Payment::all()->where('codeOfPayment', $codeOfPayment);
         return view('admin.halamanDetailPayment', ['payment' => $payment]);
 
     }

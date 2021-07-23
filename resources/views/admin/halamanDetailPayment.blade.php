@@ -40,7 +40,7 @@
             <h2 class="mb-0" style="text-align: center">Atas Nama: {{ $payment->nameOfBankAccount }}</h2>
             <h2 class="mb-0" style="text-align: center">Bank: {{ $payment->nameOfBank }}</h2>
             <br>
-            <img type="application/pdf" src="/{{ asset ( 'paymentReceipt') }}/{{ $payment->paymentReceipt }}" width="100%" height="600" alt='sasa'>
+            <img type="application/pdf" src="/{{ asset ( 'payments') }}/{{ $payment->paymentReceipt }}" width="100%" height="600" alt='sasa'>
           </div>
         </div>
       </div>
