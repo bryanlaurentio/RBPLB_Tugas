@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('nameOfBank');
-            $table->string('nameOfBankAccoumt');
+            $table->string('nameOfBankAccount');
             $table->binary('paymentReceipt');
             $table->timestamps();
         });
